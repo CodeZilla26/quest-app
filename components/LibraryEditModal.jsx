@@ -1,0 +1,269 @@
+"use client";
+import { useEffect, useMemo, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import useQuests from '../hooks/useQuests';
+import Button from './Button';
+
+const TYPES = [
+  { id: 'comic', label: 'Comics' },
+  { id: 'movie', label: 'Películas' },
+  { id: 'series', label: 'Series' },
+  { id: 'game', label: 'Juegos' },
+];
+
+const STATUSES = [
+  { id: 'backlog', label: 'Pendiente' },
+  { id: 'in_progress', label: 'En curso' },
+  { id: 'done', label: 'Completado' },
+];
+
+// Solo Leveling style ranks
+const RANKS = [
+  { id: 'E', label: 'E', color: 'from-slate-500 to-slate-400' },
+  { id: 'D', label: 'D', color: 'from-green-500 to-emerald-500' },
+  { id: 'C', label: 'C', color: 'from-cyan-500 to-blue-500' },
+  { id: 'B', label: 'B', color: 'from-indigo-600 to-purple-600' },
+  { id: 'A', label: 'A', color: 'from-amber-500 to-orange-600' },
+  { id: 'S', label: 'S', color: 'from-pink-600 to-red-600' },
+  { id: 'SS', label: 'SS', color: 'from-fuchsia-600 to-rose-600' },
+  { id: 'SSS', label: 'SSS', color: 'from-yellow-500 to-amber-600' },
+];
+
+export default function LibraryEditModal({ open, item, onClose }) {
+  const { state, updateLibraryItem, syncLibraryLinks } = useQuests();
+  const router = useRouter();
+  const isDominio = state.theme === 'dominio' || state.theme === 'shadow';
+  const [form, setForm] = useState({ title: '', type: 'comic', status: 'backlog', platform: '', rating: '', coverPath: '', chapters: '', format: '' });
+  const [errors, setErrors] = useState({});
+  const [tagInput, setTagInput] = useState('');
+  const [tags, setTags] = useState([]);
+  const [questQuery, setQuestQuery] = useState('');
+  const [selectedQuests, setSelectedQuests] = useState(new Set());
+  const [coverPreview, setCoverPreview] = useState('');
+
+  async function uploadCover(file) {
+    const fd = new FormData();
+    fd.append('file', file);
+    const res = await fetch('/api/upload', { method: 'POST', body: fd });
+    const data = await res.json();
+    if (!res.ok || !data.success) throw new Error(data.error || 'Upload failed');
+    return data.coverPath;
+  }
+
+  useEffect(() => {
+    if (!open) return;
+    const base = item || {};
+    setForm({
+      title: base.title || '',
+      type: base.type || 'comic',
+      status: base.status || 'backlog',
+      platform: base.platform || '',
+      rating: base.rating != null ? String(base.rating) : '',
+      coverPath: base.coverPath || '',
+      chapters: base.chapters != null ? String(base.chapters) : '',
+      format: base.format || '',
+    });
+    setCoverPreview(base.coverPath || '');
+    setErrors({});
+    setTags(Array.isArray(base.tags) ? base.tags : []);
+    // Inicializar selección de quests usando linkedLibraryIds o linkedQuestIds
+    const linkedFromItem = new Set(base.linkedQuestIds || []);
+    const linkedFromQuests = new Set((state.quests||[]).filter(q => (q.linkedLibraryIds||[]).includes(base.id)).map(q=>q.id));
+    const combined = new Set([...linkedFromItem, ...linkedFromQuests]);
+    setSelectedQuests(combined);
+  }, [open, item]);
+
+  if (!open) return null;
+
+  const onSave = () => {
+    const errs = {};
+    if (!form.title.trim()) errs.title = 'Título requerido';
+    if (form.type === 'game' && !form.platform.trim()) errs.platform = 'Plataforma requerida en juegos';
+    if (form.rating && !RANKS.some(r => r.id === form.rating)) errs.rating = 'Selecciona un rango válido';
+    setErrors(errs);
+    if (Object.keys(errs).length > 0) return;
+
+    const normalized = { ...form };
+    if (normalized.chapters !== '' && (normalized.type === 'comic' || normalized.type === 'series')) {
+      const n = Number(normalized.chapters);
+      normalized.chapters = Number.isFinite(n) && n >= 0 ? n : '';
+    }
+    if (normalized.type !== 'comic') normalized.format = '';
+    updateLibraryItem(item.id, {
+      title: normalized.title.trim(),
+      type: normalized.type,
+      status: normalized.status,
+      platform: normalized.type === 'game' ? normalized.platform.trim() : '',
+      rating: normalized.rating || '',
+      coverPath: normalized.coverPath || '',
+      chapters: (normalized.type === 'comic' || normalized.type === 'series') ? normalized.chapters : '',
+      format: normalized.type === 'comic' ? normalized.format : '',
+      tags,
+      linkedQuestIds: Array.from(selectedQuests),
+    });
+    // Sincronizar vínculos en quests
+    syncLibraryLinks(item.id, Array.from(selectedQuests));
+    onClose?.();
+  };
+
+  return (
+    <div className="fixed inset-0 z-[1100] flex items-start justify-center p-4">
+      <div className="absolute inset-0 bg-slate-950/70 backdrop-blur" onClick={onClose} />
+      <div className={`relative w-full max-w-lg rounded-xl border p-4 shadow-2xl ${isDominio ? 'border-purple-700/60 bg-slate-900/90' : 'border-slate-700/60 bg-slate-900/90'}`}>
+        <div className="mb-3 flex items-center justify-between gap-2">
+          <div className="text-sm font-semibold text-slate-200">Editar elemento</div>
+          <div className="flex items-center gap-2">
+            {item?.id && (
+              <Button variant="ghost" className="px-2 py-1 text-xs" onClick={() => {
+                const sp = new URLSearchParams();
+                sp.set('item', String(item.id));
+                router.push(`/library?${sp.toString()}`);
+                onClose?.();
+              }}>
+                Abrir en panel
+              </Button>
+            )}
+            <Button variant="ghost" className="px-2 py-1 text-xs" onClick={onClose}>Cerrar</Button>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+          <div className="sm:col-span-2">
+            <label className="mb-1 block text-[11px] text-slate-400">Título</label>
+            <input value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} className="w-full rounded-md border border-slate-700/60 bg-slate-800/60 px-3 py-2 text-sm text-slate-200" />
+          </div>
+          <div className="sm:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div>
+              <label className="mb-1 block text-[11px] text-slate-400">Tipo</label>
+              <div className="flex flex-wrap gap-2">
+                {TYPES.map(t => {
+                  const active = form.type === t.id;
+                  return (
+                    <button key={t.id} type="button" onClick={()=> setForm({ ...form, type: t.id })} className={`rounded-md border px-3 py-1.5 text-xs font-semibold ${active ? (isDominio ? 'border-purple-500/50 bg-purple-900/30 text-purple-200' : 'border-indigo-500/50 bg-indigo-900/20 text-indigo-200') : 'border-slate-700/60 bg-slate-800/60 text-slate-300'}`}>{t.label}</button>
+                  );
+                })}
+              </div>
+            </div>
+            <div>
+              <label className="mb-1 block text-[11px] text-slate-400">Estado</label>
+              <div className="flex flex-wrap gap-2">
+                {STATUSES.map(s => {
+                  const active = form.status === s.id;
+                  return (
+                    <button key={s.id} type="button" onClick={()=> setForm({ ...form, status: s.id })} className={`rounded-md border px-3 py-1.5 text-xs font-semibold ${active ? 'border-emerald-500/50 bg-emerald-900/20 text-emerald-200' : 'border-slate-700/60 bg-slate-800/60 text-slate-300'}`}>{s.label}</button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+          {form.type === 'game' ? (
+            <div className="sm:col-span-2">
+              <label className="mb-1 block text-[11px] text-slate-400">Plataforma (requerida)</label>
+              <input value={form.platform} onChange={(e) => setForm({ ...form, platform: e.target.value })} className="w-full rounded-md border border-slate-700/60 bg-slate-800/60 px-3 py-2 text-sm text-slate-200" />
+            </div>
+          ) : null}
+          {(form.type === 'comic' || form.type === 'series') && (
+            <>
+              {form.type === 'comic' && (
+                <div className="sm:col-span-2">
+                  <label className="mb-1 block text-[11px] text-slate-400">Formato (solo comics)</label>
+                  <select value={form.format} onChange={(e)=> setForm({ ...form, format: e.target.value })} className="w-full rounded-md border border-slate-700/60 bg-slate-800/60 px-3 py-2 text-sm text-slate-200">
+                    <option value="">Sin especificar</option>
+                    <option value="manga">Manga</option>
+                    <option value="manhwa">Manhwa</option>
+                    <option value="manhua">Manhua</option>
+                  </select>
+                </div>
+              )}
+              <div className="sm:col-span-2">
+                <label className="mb-1 block text-[11px] text-slate-400">Capítulos</label>
+                <input type="number" min="0" step="1" value={form.chapters} onChange={(e) => setForm({ ...form, chapters: e.target.value.replace(/[^0-9]/g,'') })} placeholder="Ej. 120" className="w-full rounded-md border border-slate-700/60 bg-slate-800/60 px-3 py-2 text-sm text-slate-200" />
+              </div>
+            </>
+          )}
+          <div className="sm:col-span-2">
+            <label className="mb-1 block text-[11px] text-slate-400">Rango</label>
+            <div className="flex flex-wrap gap-2">
+              {RANKS.map(r => {
+                const active = form.rating === r.id;
+                return (
+                  <button key={r.id} type="button" onClick={()=> setForm({ ...form, rating: r.id })} className={`rounded-md border px-3 py-1.5 text-xs font-bold bg-gradient-to-r ${active ? `${r.color} text-white` : 'from-slate-800 to-slate-800 text-slate-300 border-slate-700/60'}`}>{r.label}</button>
+                );
+              })}
+              <button type="button" onClick={()=> setForm({ ...form, rating: '' })} className={`rounded-md border px-3 py-1.5 text-xs ${!form.rating ? 'border-slate-500/60 text-slate-300' : 'border-slate-700/60 text-slate-400'}`}>Sin rango</button>
+            </div>
+          </div>
+          <div className="sm:col-span-2">
+            <label className="mb-1 block text-[11px] text-slate-400">Portada</label>
+            <div className="flex items-start gap-3">
+              <input type="file" accept="image/*" onChange={async (e)=>{
+                const f = e.target.files?.[0];
+                if(!f) return;
+                try { setCoverPreview(URL.createObjectURL(f)); } catch(_) {}
+                try { const coverPath = await uploadCover(f); setForm({ ...form, coverPath }); }
+                catch(err){ console.error(err); alert('Error subiendo portada'); }
+              }} className="block w-full text-xs text-slate-300 file:mr-3 file:rounded-md file:border file:border-slate-700/60 file:bg-slate-800/60 file:px-2 file:py-1 file:text-xs" />
+              <div className="w-20 h-28 overflow-hidden rounded bg-slate-800/60 flex items-center justify-center">
+                {coverPreview || form.coverPath ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={coverPreview || form.coverPath} alt="preview" className="h-full w-full object-cover" />
+                ) : (
+                  <span className="text-[11px] text-slate-500">Sin portada</span>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Tags editor */}
+        <div className="mt-3">
+          <div className="mb-1 text-[11px] text-slate-400">Tags</div>
+          <div className="flex items-center gap-2">
+            <input value={tagInput} onChange={(e)=>setTagInput(e.target.value)} onKeyDown={(e)=>{ if(e.key==='Enter' && tagInput.trim()){ setTags([...(tags||[]), tagInput.trim()]); setTagInput(''); } }} placeholder="Añadir tag y Enter" className="rounded-md border border-slate-700/60 bg-slate-800/60 px-3 py-1.5 text-xs text-slate-200 placeholder:text-slate-500" />
+            <Button variant="ghost" className="px-2 py-1 text-[11px]" onClick={()=>{ if(tagInput.trim()){ setTags([...(tags||[]), tagInput.trim()]); setTagInput(''); } }}>Añadir</Button>
+          </div>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {(tags||[]).map((t, idx)=> (
+              <span key={idx} className="inline-flex items-center gap-1 rounded-full border border-indigo-500/40 bg-indigo-500/10 px-2 py-0.5 text-[11px] text-indigo-200">
+                <span>#{t}</span>
+                <button className="opacity-70 hover:opacity-100" onClick={()=> setTags(tags.filter((_,i)=>i!==idx))}>×</button>
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Vincular quests */}
+        <div className="mt-4">
+          <div className="mb-2 text-xs font-semibold text-slate-300">Vincular con quests</div>
+          <input value={questQuery} onChange={(e)=>setQuestQuery(e.target.value)} placeholder="Buscar quest por título..." className="mb-2 w-full rounded-md border border-slate-700/60 bg-slate-800/60 px-3 py-2 text-sm text-slate-200 placeholder:text-slate-500" />
+          <div className="max-h-48 space-y-1 overflow-auto rounded-md border border-slate-700/60 p-2">
+            {(state.quests||[])
+              .filter(q => questQuery.trim() ? (q.title||'').toLowerCase().includes(questQuery.trim().toLowerCase()) : true)
+              .map(q => {
+                const checked = selectedQuests.has(q.id);
+                return (
+                  <label key={q.id} className="flex items-center justify-between gap-2 rounded px-2 py-1 text-[12px] text-slate-200 hover:bg-slate-800/60">
+                    <span className="truncate">{q.title}</span>
+                    <input type="checkbox" checked={checked} onChange={(e)=>{
+                      const next = new Set(selectedQuests);
+                      if (e.target.checked) next.add(q.id); else next.delete(q.id);
+                      setSelectedQuests(next);
+                    }} />
+                  </label>
+                );
+              })}
+          </div>
+        </div>
+
+        {Object.keys(errors).length > 0 && (
+          <div className="mt-3 text-[11px] text-red-300">{Object.values(errors).join(' · ')}</div>
+        )}
+
+        <div className="mt-4 flex items-center justify-end gap-2">
+          <Button variant="ghost" className="px-3 py-1.5 text-xs" onClick={onClose}>Cancelar</Button>
+          <Button className={`${isDominio ? 'bg-gradient-to-r from-purple-600 to-fuchsia-600' : 'bg-gradient-to-r from-indigo-600 to-blue-600'} px-3 py-1.5 text-xs`} onClick={onSave}>Guardar cambios</Button>
+        </div>
+      </div>
+    </div>
+  );
+}
