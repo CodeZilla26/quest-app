@@ -5,6 +5,7 @@ import useQuests from '../../hooks/useQuests';
 import Button from '../../components/Button';
 import LibraryEditModal from '../../components/LibraryEditModal';
 import LibraryAddModal from '../../components/LibraryAddModal';
+import ImageLightbox from '../../components/ImageLightbox';
 
 const TYPES = [
   { id: 'comic', label: 'Comics' },
@@ -55,6 +56,7 @@ export default function LibraryPage() {
   const [editItem, setEditItem] = useState(null);
 
   const [addOpen, setAddOpen] = useState(false);
+  const [lightboxSrc, setLightboxSrc] = useState('');
 
   const items = state.library || [];
   const allTags = useMemo(() => {
@@ -193,7 +195,7 @@ export default function LibraryPage() {
                   <span className={`rounded px-2 py-1 text-xs font-bold shadow-lg ${rankClasses(it.rating)}`}>{String(it.rating).toUpperCase()}</span>
                 </div>
               )}
-              <div className="aspect-[3/4] w-full overflow-hidden rounded-md bg-slate-900/60 cursor-pointer" onClick={() => openItem(it.id)}>
+              <div className="aspect-[3/4] w-full overflow-hidden rounded-md bg-slate-900/60 cursor-zoom-in" onClick={(e) => { e.stopPropagation(); const src = it.coverPath || it.coverUrl; if (src) setLightboxSrc(src); }}>
                 {it.coverPath ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={it.coverPath} alt={it.title} className="h-full w-full object-cover" />
@@ -244,7 +246,7 @@ export default function LibraryPage() {
               <Button variant="ghost" className="px-2 py-1 text-xs" onClick={closeItem}>Cerrar</Button>
             </div>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-              <div className="aspect-[3/4] w-full overflow-hidden rounded-lg bg-slate-900/60">
+              <div className="aspect-[3/4] w-full overflow-hidden rounded-lg bg-slate-900/60 cursor-zoom-in" onClick={(e)=>{ e.stopPropagation(); const src = selectedItem.coverPath || selectedItem.coverUrl; if(src) setLightboxSrc(src); }}>
                 {selectedItem.coverPath ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={selectedItem.coverPath} alt={selectedItem.title} className="h-full w-full object-cover" />
@@ -308,6 +310,7 @@ export default function LibraryPage() {
         router.replace(`/library${qs ? `?${qs}` : ''}`);
       }} />
       <LibraryAddModal open={addOpen} onClose={() => setAddOpen(false)} />
+      <ImageLightbox src={lightboxSrc} alt={selectedItem?.title || 'Portada'} onClose={()=> setLightboxSrc('')} />
     </main>
   );
 }

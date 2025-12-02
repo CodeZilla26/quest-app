@@ -32,7 +32,7 @@ export default function LibraryAddModal({ open, onClose }) {
   const { state, addLibraryItem } = useQuests();
   const isDominio = state.theme === 'dominio' || state.theme === 'shadow';
 
-  const [form, setForm] = useState({ title: '', type: 'comic', status: 'backlog', platform: '', rating: '', coverPath: '', chapters: '', format: '' });
+  const [form, setForm] = useState({ title: '', type: 'comic', status: 'backlog', platform: '', rating: '', coverPath: '', chapters: '', format: '', link: '' });
   const [errors, setErrors] = useState({});
   const [tagInput, setTagInput] = useState('');
   const [tags, setTags] = useState([]);
@@ -65,9 +65,9 @@ export default function LibraryAddModal({ open, onClose }) {
     }
     // Si no es comic, limpiar formato
     if (normalized.type !== 'comic') normalized.format = '';
-    addLibraryItem({ ...normalized, tags });
+    addLibraryItem({ ...normalized, tags, link: (normalized.link || '').trim() });
     // reset and close
-    setForm({ title: '', type: form.type, status: form.status, platform: '', rating: '', coverPath: '', chapters: '', format: '' });
+    setForm({ title: '', type: form.type, status: form.status, platform: '', rating: '', coverPath: '', chapters: '', format: '', link: '' });
     setTags([]);
     onClose?.();
   };
@@ -81,11 +81,16 @@ export default function LibraryAddModal({ open, onClose }) {
           <Button variant="ghost" className="px-2 py-1 text-xs" onClick={onClose}>Cerrar</Button>
         </div>
 
-        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-          <div className="sm:col-span-2">
-            <label className="mb-1 block text-[11px] text-slate-400">Título</label>
-            <input value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} className="w-full rounded-md border border-slate-700/60 bg-slate-800/60 px-3 py-2 text-sm text-slate-200" />
-          </div>
+        <div className="max-h-[70vh] overflow-y-auto pr-1">
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+            <div className="sm:col-span-2">
+              <label className="mb-1 block text-[11px] text-slate-400">Título</label>
+              <input value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} className="w-full rounded-md border border-slate-700/60 bg-slate-800/60 px-3 py-2 text-sm text-slate-200" />
+            </div>
+            <div className="sm:col-span-2">
+              <label className="mb-1 block text-[11px] text-slate-400">Link (opcional)</label>
+              <input type="url" placeholder="https://..." value={form.link} onChange={(e) => setForm({ ...form, link: e.target.value })} className="w-full rounded-md border border-slate-700/60 bg-slate-800/60 px-3 py-2 text-sm text-slate-200" />
+            </div>
           <div className="sm:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-2">
             <div>
               <label className="mb-1 block text-[11px] text-slate-400">Tipo</label>
@@ -168,28 +173,29 @@ export default function LibraryAddModal({ open, onClose }) {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Tags */}
-        <div className="mt-3">
-          <div className="mb-1 text-[11px] text-slate-400">Tags</div>
-          <div className="flex items-center gap-2">
-            <input value={tagInput} onChange={(e)=>setTagInput(e.target.value)} onKeyDown={(e)=>{ if(e.key==='Enter' && tagInput.trim()){ setTags([...(tags||[]), tagInput.trim()]); setTagInput(''); } }} placeholder="Añadir tag y Enter" className="rounded-md border border-slate-700/60 bg-slate-800/60 px-3 py-1.5 text-xs text-slate-200 placeholder:text-slate-500" />
-            <Button variant="ghost" className="px-2 py-1 text-[11px]" onClick={()=>{ if(tagInput.trim()){ setTags([...(tags||[]), tagInput.trim()]); setTagInput(''); } }}>Añadir</Button>
           </div>
-          <div className="mt-2 flex flex-wrap gap-2">
-            {(tags||[]).map((t, idx)=> (
-              <span key={idx} className="inline-flex items-center gap-1 rounded-full border border-indigo-500/40 bg-indigo-500/10 px-2 py-0.5 text-[11px] text-indigo-200">
-                <span>#{t}</span>
-                <button className="opacity-70 hover:opacity-100" onClick={()=> setTags(tags.filter((_,i)=>i!==idx))}>×</button>
-              </span>
-            ))}
-          </div>
-        </div>
 
-        {Object.keys(errors).length > 0 && (
-          <div className="mt-3 text-[11px] text-red-300">{Object.values(errors).join(' · ')}</div>
-        )}
+          {/* Tags */}
+          <div className="mt-3">
+            <div className="mb-1 text-[11px] text-slate-400">Tags</div>
+            <div className="flex items-center gap-2">
+              <input value={tagInput} onChange={(e)=>setTagInput(e.target.value)} onKeyDown={(e)=>{ if(e.key==='Enter' && tagInput.trim()){ setTags([...(tags||[]), tagInput.trim()]); setTagInput(''); } }} placeholder="Añadir tag y Enter" className="rounded-md border border-slate-700/60 bg-slate-800/60 px-3 py-1.5 text-xs text-slate-200 placeholder:text-slate-500" />
+              <Button variant="ghost" className="px-2 py-1 text-[11px]" onClick={()=>{ if(tagInput.trim()){ setTags([...(tags||[]), tagInput.trim()]); setTagInput(''); } }}>Añadir</Button>
+            </div>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {(tags||[]).map((t, idx)=> (
+                <span key={idx} className="inline-flex items-center gap-1 rounded-full border border-indigo-500/40 bg-indigo-500/10 px-2 py-0.5 text-[11px] text-indigo-200">
+                  <span>#{t}</span>
+                  <button className="opacity-70 hover:opacity-100" onClick={()=> setTags(tags.filter((_,i)=>i!==idx))}>×</button>
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {Object.keys(errors).length > 0 && (
+            <div className="mt-3 text-[11px] text-red-300">{Object.values(errors).join(' · ')}</div>
+          )}
+        </div>
 
         <div className="mt-4 flex items-center justify-end gap-2">
           <Button variant="ghost" className="px-3 py-1.5 text-xs" onClick={onClose}>Cancelar</Button>
