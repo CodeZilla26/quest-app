@@ -45,10 +45,6 @@ const NotificationSystem = () => {
       case 'error': return '❌';
       case 'warning': return '⚠️';
       case 'info': return 'ℹ️';
-      case 'achievement': return '🏆';
-      case 'quest': return '⚔️';
-      case 'exp': return '⚡';
-      case 'essence': return '💎';
       default: return '📢';
     }
   };
@@ -63,14 +59,6 @@ const NotificationSystem = () => {
         return 'from-amber-500 to-orange-600 border-amber-400/50';
       case 'info':
         return 'from-blue-500 to-cyan-600 border-blue-400/50';
-      case 'achievement':
-        return 'from-purple-500 to-fuchsia-600 border-purple-400/50';
-      case 'quest':
-        return 'from-indigo-500 to-purple-600 border-indigo-400/50';
-      case 'exp':
-        return 'from-cyan-500 to-blue-600 border-cyan-400/50';
-      case 'essence':
-        return 'from-amber-500 to-yellow-600 border-amber-400/50';
       default:
         return 'from-slate-500 to-slate-600 border-slate-400/50';
     }

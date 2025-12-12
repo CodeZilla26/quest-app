@@ -1,237 +1,11 @@
 {
-  "quests": [
-    {
-      "streak": 0,
-      "bestStreak": 0,
-      "achievements": [
-        "quest_epic_boss",
-        "quest_legendary_master",
-        "quest_rank_s_champion"
-      ],
-      "id": "mgttx811e89wmtnbif4",
-      "title": "BOT - DETRACCIONES",
-      "rank": "S",
-      "type": "explore",
-      "rarity": "legendary",
-      "isBoss": true,
-      "isRepeatable": true,
-      "activeDays": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
-      "lastCompleted": null,
-      "objectives": [
-        {
-          "id": "mgttyxokmg95tv6xzul",
-          "title": "Cancelación Abonos",
-          "note": "",
-          "dailyNotes": {
-            "2025-10-17": "Se hizo la cancelacion",
-            "2025-10-20": "Se completo la CANCELACION",
-            "2025-10-23": "Se cancelo el abono",
-            "2025-10-24": "se cancelaron los abonos",
-            "2025-10-27": "se hace una cancelacion de abonos",
-            "2025-10-28": "se cancelo el abono",
-            "2025-10-30": "SE CANCELO EL ABONO"
-          }
-        },
-        {
-          "id": "mgttyq9mgoh0gbzkx9i",
-          "title": "Registro Abonos",
-          "note": "",
-          "dailyNotes": {
-            "2025-10-17": "Se hizo el registro",
-            "2025-10-20": "Se completo el ABONO",
-            "2025-10-23": "Se registro el Abono",
-            "2025-10-24": "Se registraron los abonos",
-            "2025-10-27": "se registro el abono",
-            "2025-10-28": "se registro el abono",
-            "2025-10-30": "SE REGISTRO EL ABONO"
-          }
-        },
-        {
-          "id": "mgttydmjt6lnlnfg4br",
-          "title": "Excel Banco de la Nacion",
-          "note": "",
-          "dailyNotes": {
-            "2025-10-17": "Se descargo el excel de dia 16/10",
-            "2025-10-20": "Se descargo el Excel dia 17/10/2025",
-            "2025-10-21": "ya se descargo y se subio a la carpeta correspondiente 20/10/2025",
-            "2025-10-23": "Se descargo el excel dia 22/10",
-            "2025-10-24": "se descargo el documento del dia 23/10",
-            "2025-10-27": "ya descargue el documento de 24/10",
-            "2025-10-28": "se descargo el documento 27/10",
-            "2025-10-30": "SE DESCARGO 29/10"
-          }
-        }
-      ],
-      "expPending": 0,
-      "expAwarded": false,
-      "editCount": 15
-    },
-    {
-      "streak": 0,
-      "bestStreak": 0,
-      "achievements": [
-        "quest_epic_boss",
-        "quest_legendary_master",
-        "quest_rank_s_champion"
-      ],
-      "id": "mgttpc0jaziwhnfnq8n",
-      "title": "BOT - IBK",
-      "rank": "S",
-      "type": "hunt",
-      "rarity": "legendary",
-      "isBoss": true,
-      "isRepeatable": true,
-      "activeDays": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
-      "lastCompleted": null,
-      "objectives": [
-        {
-          "id": "mgtu2z7qfkg9u1zx8z",
-          "title": "Mejoras para el BOT",
-          "note": "",
-          "dailyNotes": {
-            "2025-10-30": "YA SE PROCESARON TODOS LOS CASOS"
-          }
-        }
-      ],
-      "expPending": 0,
-      "expAwarded": false,
-      "editCount": 1
-    },
-    {
-      "streak": 0,
-      "bestStreak": 0,
-      "achievements": [
-        "quest_epic_boss",
-        "quest_legendary_master",
-        "quest_rank_s_champion"
-      ],
-      "id": "mgttksbpm89pga2qoai",
-      "title": "BOT - BBVA",
-      "rank": "S",
-      "type": "explore",
-      "rarity": "legendary",
-      "isBoss": true,
-      "isRepeatable": true,
-      "activeDays": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
-      "lastCompleted": null,
-      "objectives": [
-        {
-          "id": "mgtu3xzjd86bmtsdjx",
-          "title": "Ejecutar Documentos",
-          "note": "",
-          "dailyNotes": {
-            "2025-10-23": "Se ejecuto los documentos",
-            "2025-10-24": "proximamente se subiran los documentos",
-            "2025-10-30": "SE VA A DEJAR PROCESANDO"
-          }
-        },
-        {
-          "id": "mgtu3sstaebx1xcigm",
-          "title": "Ejecutar Firmas",
-          "note": "",
-          "dailyNotes": {
-            "2025-10-23": "Se ejecuto las firmas",
-            "2025-10-24": "se encuentran ejecutando las firmas",
-            "2025-10-30": "SE VA A PROCESAR"
-          }
-        },
-        {
-          "id": "mgtu3kgetbyb053caad",
-          "title": "Registrar Firmas en BD",
-          "note": "",
-          "dailyNotes": {
-            "2025-10-21": "ya se registro la firma CALL FirmaClienteBBVA('2025-10-20'); ",
-            "2025-10-23": "se registro la firma CALL FirmaClienteBBVA('2025-10-22'); ",
-            "2025-10-24": "se registro CALL FirmaClienteBBVA('2025-10-23');",
-            "2025-10-28": "se registro la firma CALL FirmaClienteBBVA('2025-10-27'); ",
-            "2025-10-29": "se registro la firma CALL FirmaClienteBBVA('2025-10-28'); ",
-            "2025-10-30": "se registro la firma CALL FirmaClienteBBVA('2025-10-29'); "
-          }
-        }
-      ],
-      "expPending": 0,
-      "expAwarded": false,
-      "editCount": 11
-    },
-    {
-      "streak": 0,
-      "bestStreak": 0,
-      "achievements": [
-        "quest_epic_boss",
-        "quest_legendary_master",
-        "quest_rank_s_champion"
-      ],
-      "id": "mgttihunkw60zalmh0s",
-      "title": "BOT - BCP",
-      "rank": "S",
-      "type": "escort",
-      "rarity": "legendary",
-      "isBoss": true,
-      "isRepeatable": true,
-      "activeDays": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
-      "lastCompleted": null,
-      "objectives": [
-        {
-          "id": "mgttiw86gv7x5h6px3k",
-          "title": "Encender Procont",
-          "note": "",
-          "dailyNotes": {
-            "2025-10-17": "Se levanto sin problemas",
-            "2025-10-20": "ya fue levantado",
-            "2025-10-21": "Se ejecuto",
-            "2025-10-22": "se levanto sin problemas",
-            "2025-10-23": "Se ejecuto",
-            "2025-10-24": "Se levanto procont sin problemas",
-            "2025-10-27": "ya fue encendido y todo bien",
-            "2025-10-28": "Ya ejecute procont",
-            "2025-10-29": "se encendio procont",
-            "2025-10-30": "Esta encendido el BOT"
-          }
-        }
-      ],
-      "expPending": 0,
-      "expAwarded": false,
-      "editCount": 7
-    }
-  ],
-  "filter": "active",
-  "exp": 3670,
+  "quests": [],
+  "filter": "archived",
+  "exp": 3819,
   "wallet": {
-    "essence": 719
+    "essence": 744
   },
-  "inventory": [
-    {
-      "id": "chest_small",
-      "name": "Cofre pequeño",
-      "type": "consumable",
-      "acquiredAt": "2025-10-23T19:59:13.398Z",
-      "source": "quest_1_day"
-    }
-  ],
+  "inventory": [],
   "boosters": {
     "exp": {
       "multiplier": 1.5,
@@ -1470,6 +1244,23 @@
       "chapters": 1,
       "format": "manhwa",
       "link": "https://en-thunderscans.com/comics/savior-of-divine-blood-draw-out-0-00000001-to-become-the-strongest/"
+    },
+    {
+      "id": "lib_1chz1jukoa5h",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2025-12-12T05:35:19.898Z",
+      "tags": [],
+      "coverBase64": "",
+      "linkedQuestIds": [],
+      "title": "Perspectiva Divina",
+      "platform": "",
+      "rating": "S",
+      "coverPath": "/covers/cover_1765517697717_yqm2ybt0rn.jpg",
+      "chapters": 1,
+      "format": "manhua",
+      "link": "https://1stkissmanga.io/manga/divine-perspective/",
+      "updatedAt": "2025-12-12T05:46:50.158Z"
     }
   ],
   "libraryFilter": {
@@ -1483,7 +1274,11 @@
     "bossCompletedCount": 0,
     "perfectDayStreak": 0,
     "dailyCompletionStreak": 0,
-    "lastStreakCheckKey": "2025-12-09"
+    "lastStreakCheckKey": "2025-12-12",
+    "pity": {
+      "rareNoFragment": 0,
+      "epicNoFragment": 0
+    }
   },
   "streaks": {
     "currentStreak": 1,

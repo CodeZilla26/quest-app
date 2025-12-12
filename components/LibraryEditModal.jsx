@@ -30,15 +30,13 @@ const RANKS = [
 ];
 
 export default function LibraryEditModal({ open, item, onClose }) {
-  const { state, updateLibraryItem, syncLibraryLinks } = useQuests();
+  const { state, updateLibraryItem } = useQuests();
   const router = useRouter();
   const isDominio = state.theme === 'dominio' || state.theme === 'shadow';
   const [form, setForm] = useState({ title: '', type: 'comic', status: 'backlog', platform: '', rating: '', coverPath: '', chapters: '', format: '', link: '' });
   const [errors, setErrors] = useState({});
   const [tagInput, setTagInput] = useState('');
   const [tags, setTags] = useState([]);
-  const [questQuery, setQuestQuery] = useState('');
-  const [selectedQuests, setSelectedQuests] = useState(new Set());
   const [coverPreview, setCoverPreview] = useState('');
 
   async function uploadCover(file) {
@@ -67,11 +65,6 @@ export default function LibraryEditModal({ open, item, onClose }) {
     setCoverPreview(base.coverPath || '');
     setErrors({});
     setTags(Array.isArray(base.tags) ? base.tags : []);
-    // Inicializar selección de quests usando linkedLibraryIds o linkedQuestIds
-    const linkedFromItem = new Set(base.linkedQuestIds || []);
-    const linkedFromQuests = new Set((state.quests||[]).filter(q => (q.linkedLibraryIds||[]).includes(base.id)).map(q=>q.id));
-    const combined = new Set([...linkedFromItem, ...linkedFromQuests]);
-    setSelectedQuests(combined);
   }, [open, item]);
 
   if (!open) return null;
@@ -101,10 +94,7 @@ export default function LibraryEditModal({ open, item, onClose }) {
       format: normalized.type === 'comic' ? normalized.format : '',
       link: (normalized.link || '').trim(),
       tags,
-      linkedQuestIds: Array.from(selectedQuests),
     });
-    // Sincronizar vínculos en quests
-    syncLibraryLinks(item.id, Array.from(selectedQuests));
     onClose?.();
   };
 
@@ -239,28 +229,7 @@ export default function LibraryEditModal({ open, item, onClose }) {
             </div>
           </div>
 
-          {/* Vincular quests */}
-          <div className="mt-4">
-            <div className="mb-2 text-xs font-semibold text-slate-300">Vincular con quests</div>
-            <input value={questQuery} onChange={(e)=>setQuestQuery(e.target.value)} placeholder="Buscar quest por título..." className="mb-2 w-full rounded-md border border-slate-700/60 bg-slate-800/60 px-3 py-2 text-sm text-slate-200 placeholder:text-slate-500" />
-            <div className="max-h-48 space-y-1 overflow-auto rounded-md border border-slate-700/60 p-2">
-              {(state.quests||[])
-                .filter(q => questQuery.trim() ? (q.title||'').toLowerCase().includes(questQuery.trim().toLowerCase()) : true)
-                .map(q => {
-                  const checked = selectedQuests.has(q.id);
-                  return (
-                    <label key={q.id} className="flex items-center justify-between gap-2 rounded px-2 py-1 text-[12px] text-slate-200 hover:bg-slate-800/60">
-                      <span className="truncate">{q.title}</span>
-                      <input type="checkbox" checked={checked} onChange={(e)=>{
-                        const next = new Set(selectedQuests);
-                        if (e.target.checked) next.add(q.id); else next.delete(q.id);
-                        setSelectedQuests(next);
-                      }} />
-                    </label>
-                  );
-                })}
-            </div>
-          </div>
+          {/* Bloque de vinculación con quests eliminado; el modal ahora solo edita datos de biblioteca */}
 
           {Object.keys(errors).length > 0 && (
             <div className="mt-3 text-[11px] text-red-300">{Object.values(errors).join(' · ')}</div>

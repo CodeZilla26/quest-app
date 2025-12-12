@@ -1,11 +1,8 @@
 import './globals.css';
 import Particles from '../components/Particles';
-import Header from '../components/Header';
 import NotificationSystem from '../components/NotificationSystem';
 import Providers from './providers';
 import ThemeApplier from '../components/ThemeApplier';
-import RewardModal from '../components/RewardModal';
-import ChestOpenModal from '../components/ChestOpenModal';
 
 export const metadata = {
   title: 'TodoList - Next + Tailwind (JSX)',
@@ -25,11 +22,7 @@ export default function RootLayout({ children }) {
         <Providers>
           <div className="relative">
             <ThemeApplier />
-            <Header />
             {children}
-            {/* Modales globales */}
-            <RewardModal />
-            <ChestOpenModal />
           </div>
         </Providers>
       </body>
