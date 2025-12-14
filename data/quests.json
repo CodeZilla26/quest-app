@@ -1,27 +1,4 @@
 {
-  "quests": [],
-  "filter": "archived",
-  "exp": 3819,
-  "wallet": {
-    "essence": 744
-  },
-  "inventory": [],
-  "boosters": {
-    "exp": {
-      "multiplier": 1.5,
-      "activeUntil": "2025-10-17T15:39:27.939Z"
-    }
-  },
-  "theme": "default",
-  "achievementsUnlocked": [
-    "quest_1_day",
-    "day_clean"
-  ],
-  "rewardsQueue": [],
-  "toastQueue": [],
-  "settings": {
-    "animations": false
-  },
   "library": [
     {
       "id": "lib_p8hcxbzpqfn",
@@ -1268,25 +1245,5 @@
     "status": "all",
     "query": ""
   },
-  "metrics": {
-    "objectivesCompletedToday": 0,
-    "questsCompletedToday": 0,
-    "bossCompletedCount": 0,
-    "perfectDayStreak": 0,
-    "dailyCompletionStreak": 0,
-    "lastStreakCheckKey": "2025-12-12",
-    "pity": {
-      "rareNoFragment": 0,
-      "epicNoFragment": 0
-    }
-  },
-  "streaks": {
-    "currentStreak": 1,
-    "longestStreak": 1,
-    "lastCompletionDate": "2025-10-21",
-    "completionHistory": [
-      "2025-10-21"
-    ]
-  },
-  "soundQueue": []
+  "theme": "default"
 }

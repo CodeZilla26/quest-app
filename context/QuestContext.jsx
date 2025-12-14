@@ -93,6 +93,30 @@ export function QuestProvider({ children }) {
     };
   }, []);
 
+  // Persist library-related state to the existing /api/quests endpoint
+  useEffect(() => {
+    // Pequeño debounce para evitar demasiados POST al escribir/editar
+    const timeout = setTimeout(async () => {
+      try {
+        const payload = {
+          library: state.library || [],
+          libraryFilter: state.libraryFilter || { type: 'all', status: 'all', query: '' },
+          theme: state.theme || 'default',
+        };
+
+        await fetch('/api/quests', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+      } catch (err) {
+        console.error('Error saving library data:', err);
+      }
+    }, 500);
+
+    return () => clearTimeout(timeout);
+  }, [state.library, state.libraryFilter, state.theme]);
+
   const value = useMemo(() => state, [state]);
   const actions = useMemo(() => ({ dispatch }), [dispatch]);
 
