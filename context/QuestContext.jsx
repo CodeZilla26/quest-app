@@ -71,46 +71,78 @@ function reducer(state, action) {
 export function QuestProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  // Hidratar biblioteca desde la API existente (/api/quests), usando solo la parte de library
+  // Hidratar biblioteca y settings desde las nuevas APIs (/api/library y /api/settings)
   useEffect(() => {
     let cancelled = false;
 
-    async function loadLibrary() {
+    async function loadInitialState() {
       try {
-        const res = await fetch('/api/quests');
-        if (!res.ok) return;
-        const data = await res.json();
-        if (cancelled || !data) return;
-        dispatch({ type: 'INIT', payload: data });
+        const [libRes, settingsRes] = await Promise.all([
+          fetch('/api/library'),
+          fetch('/api/settings'),
+        ]);
+
+        if (cancelled) return;
+
+        const payload = {};
+
+        if (libRes.ok) {
+          const libData = await libRes.json();
+          if (!cancelled && libData) {
+            payload.library = libData.library || [];
+          }
+        }
+
+        if (settingsRes.ok) {
+          const settingsData = await settingsRes.json();
+          if (!cancelled && settingsData) {
+            if (settingsData.libraryFilter) payload.libraryFilter = settingsData.libraryFilter;
+            if (settingsData.theme) payload.theme = settingsData.theme;
+          }
+        }
+
+        if (!cancelled) {
+          dispatch({ type: 'INIT', payload });
+        }
       } catch (err) {
-        console.error('Error loading library data:', err);
+        console.error('Error loading initial library/settings data:', err);
       }
     }
 
-    loadLibrary();
+    loadInitialState();
     return () => {
       cancelled = true;
     };
   }, []);
 
-  // Persist library-related state to the existing /api/quests endpoint
+  // Persistir estado de biblioteca y settings en endpoints separados
   useEffect(() => {
     // Pequeño debounce para evitar demasiados POST al escribir/editar
     const timeout = setTimeout(async () => {
       try {
-        const payload = {
+        const libraryPayload = {
           library: state.library || [],
+        };
+
+        const settingsPayload = {
           libraryFilter: state.libraryFilter || { type: 'all', status: 'all', query: '' },
           theme: state.theme || 'default',
         };
 
-        await fetch('/api/quests', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
+        await Promise.all([
+          fetch('/api/library', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(libraryPayload),
+          }),
+          fetch('/api/settings', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(settingsPayload),
+          }),
+        ]);
       } catch (err) {
-        console.error('Error saving library data:', err);
+        console.error('Error saving library/settings data:', err);
       }
     }, 500);
 

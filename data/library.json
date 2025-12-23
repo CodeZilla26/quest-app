@@ -865,22 +865,6 @@
       "link": ""
     },
     {
-      "id": "lib_zg6uegowd1",
-      "type": "movie",
-      "status": "backlog",
-      "createdAt": "2025-12-09T18:31:04.192Z",
-      "tags": [],
-      "coverBase64": "",
-      "linkedQuestIds": [],
-      "title": "Señales",
-      "platform": "",
-      "rating": "A",
-      "coverPath": "/covers/cover_1765305060444_yprrsrl9jbl.jpg",
-      "chapters": "",
-      "format": "",
-      "link": ""
-    },
-    {
       "id": "lib_snc7ju9iro",
       "type": "comic",
       "status": "backlog",
@@ -1240,6 +1224,22 @@
       "updatedAt": "2025-12-12T05:46:50.158Z"
     },
     {
+      "id": "lib_zg6uegowd1",
+      "type": "movie",
+      "status": "backlog",
+      "createdAt": "2025-12-09T18:31:04.192Z",
+      "tags": [],
+      "coverBase64": "",
+      "linkedQuestIds": [],
+      "title": "Señales",
+      "platform": "",
+      "rating": "A",
+      "coverPath": "/covers/cover_1765305060444_yprrsrl9jbl.jpg",
+      "chapters": "",
+      "format": "",
+      "link": ""
+    },
+    {
       "id": "lib_eiwahu0lskc",
       "type": "movie",
       "status": "backlog",
@@ -1253,12 +1253,36 @@
       "chapters": "",
       "format": "",
       "link": ""
+    },
+    {
+      "id": "lib_zqklg8t413",
+      "type": "series",
+      "status": "backlog",
+      "createdAt": "2025-12-23T06:57:28.132Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "La maldición de Bly Manor",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1766473046399_tzejmtm3e8n.jpg",
+      "chapters": 1,
+      "format": "",
+      "link": ""
+    },
+    {
+      "id": "lib_xsi16rmxuti",
+      "type": "series",
+      "status": "backlog",
+      "createdAt": "2025-12-23T06:58:54.266Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Supernatural",
+      "platform": "",
+      "rating": "SS",
+      "coverPath": "/covers/cover_1766473128503_p25lupvhbv.jpg",
+      "chapters": 1,
+      "format": "",
+      "link": ""
     }
-  ],
-  "libraryFilter": {
-    "type": "all",
-    "status": "all",
-    "query": ""
-  },
-  "theme": "default"
+  ]
 }

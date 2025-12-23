@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "id": "lib_zqklg8t413",
+      "type": "series",
+      "status": "backlog",
+      "createdAt": "2025-12-23T06:57:28.132Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "La maldición de Bly Manor",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1766473046399_tzejmtm3e8n.jpg",
+      "chapters": 1,
+      "format": "",
+      "link": ""
+    },
+    {
+      "id": "lib_xsi16rmxuti",
+      "type": "series",
+      "status": "backlog",
+      "createdAt": "2025-12-23T06:58:54.266Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Supernatural",
+      "platform": "",
+      "rating": "SS",
+      "coverPath": "/covers/cover_1766473128503_p25lupvhbv.jpg",
+      "chapters": 1,
+      "format": "",
+      "link": ""
+    }
+  ]
+}

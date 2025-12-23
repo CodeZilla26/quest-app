@@ -1,0 +1,35 @@
+{
+  "items": [
+    {
+      "id": "lib_zg6uegowd1",
+      "type": "movie",
+      "status": "backlog",
+      "createdAt": "2025-12-09T18:31:04.192Z",
+      "tags": [],
+      "coverBase64": "",
+      "linkedQuestIds": [],
+      "title": "Señales",
+      "platform": "",
+      "rating": "A",
+      "coverPath": "/covers/cover_1765305060444_yprrsrl9jbl.jpg",
+      "chapters": "",
+      "format": "",
+      "link": ""
+    },
+    {
+      "id": "lib_eiwahu0lskc",
+      "type": "movie",
+      "status": "backlog",
+      "createdAt": "2025-12-22T06:03:46.892Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Transcendence",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1766383417679_mvhgeun9e7m.jpg",
+      "chapters": "",
+      "format": "",
+      "link": ""
+    }
+  ]
+}
