@@ -14,6 +14,27 @@ const TYPE_FILES = {
   game: path.join(DATA_DIR, 'games.json'),
 };
 
+function normalizeType(type) {
+  const t = String(type || '').trim().toLowerCase();
+  if (!t) return '';
+  if (t === 'comics' || t === 'comic') return 'comic';
+  if (t === 'movies' || t === 'movie' || t === 'pelicula' || t === 'películas' || t === 'peliculas') return 'movie';
+  if (t === 'serie' || t === 'series') return 'series';
+  if (t === 'games' || t === 'game' || t === 'juego' || t === 'juegos') return 'game';
+  return t;
+}
+
+function dedupeById(items) {
+  const map = new Map();
+  for (const it of items || []) {
+    if (!it) continue;
+    const id = it.id != null ? String(it.id) : '';
+    if (!id) continue;
+    map.set(id, it);
+  }
+  return Array.from(map.values());
+}
+
 async function ensureDataDir() {
   try {
     await fs.access(DATA_DIR);
@@ -44,8 +65,19 @@ export async function GET() {
     const perType = await Promise.all(types.map((t) => readTypeFile(t)));
     const aggregated = perType.flat();
 
-    if (aggregated.length > 0) {
-      return NextResponse.json({ library: aggregated });
+    // 1.5) Siempre intentar mezclar con library.json como respaldo, para evitar pérdidas
+    let backup = [];
+    try {
+      const raw = await fs.readFile(LIBRARY_FILE, 'utf8');
+      const data = JSON.parse(raw || '{}');
+      backup = Array.isArray(data.library) ? data.library : [];
+    } catch {
+      backup = [];
+    }
+
+    if (aggregated.length > 0 || backup.length > 0) {
+      const merged = dedupeById([...(aggregated || []), ...(backup || [])]);
+      return NextResponse.json({ library: merged });
     }
 
     // 2) Si aún no existen archivos por tipo, mantener compat con library.json
@@ -102,10 +134,8 @@ export async function POST(request) {
     };
 
     for (const item of library) {
-      const t = item && item.type;
-      if (t && byType[t]) {
-        byType[t].push(item);
-      }
+      const t = normalizeType(item && item.type);
+      if (t && byType[t]) byType[t].push({ ...item, type: t });
     }
 
     // Escribir archivos por tipo (formato { items: [...] })

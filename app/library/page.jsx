@@ -46,12 +46,13 @@ function rankClasses(r) {
 export default function LibraryPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { state, addLibraryItem, removeLibraryItem } = useQuests();
+  const { state, addLibraryItem, updateLibraryItem, removeLibraryItem } = useQuests();
   const isDominio = state.theme === 'dominio' || state.theme === 'shadow';
 
   const [tab, setTab] = useState('all');
   const [query, setQuery] = useState('');
   const [status, setStatus] = useState('all');
+  const [sortBy, setSortBy] = useState('recent'); // recent | title | rating
   const [activeTags, setActiveTags] = useState([]);
   const [editItem, setEditItem] = useState(null);
 
@@ -59,6 +60,19 @@ export default function LibraryPage() {
   const [lightboxSrc, setLightboxSrc] = useState('');
 
   const items = state.library || [];
+
+  const currentTypeLabel = TYPES.find(t => t.id === tab)?.label || '';
+  const currentTypeIcon = tab === 'all' ? '📚' : (TYPE_ICONS[tab] || '📦');
+
+  // Contadores por tipo para mostrar en las pestañas
+  const typeCounts = useMemo(() => {
+    const counts = { all: items.length };
+    TYPES.forEach(t => { counts[t.id] = 0; });
+    (items || []).forEach(it => {
+      if (it?.type && counts.hasOwnProperty(it.type)) counts[it.type] += 1;
+    });
+    return counts;
+  }, [items]);
   const allTags = useMemo(() => {
     const set = new Set();
     (items||[]).forEach(it => (it.tags||[]).forEach(t => set.add(String(t))));
@@ -94,8 +108,29 @@ export default function LibraryPage() {
       .filter((it) => (status === 'all' ? true : it.status === status))
       .filter((it) => (query.trim() ? (it.title || '').toLowerCase().includes(query.trim().toLowerCase()) : true))
       .filter((it) => (activeTags.length ? (it.tags||[]).some(t => activeTags.includes(String(t))) : true));
-    return base.sort((a,b) => (b.updatedAt || b.createdAt || '').localeCompare(a.updatedAt || a.createdAt || ''));
-  }, [items, tab, status, query, activeTags]);
+
+    // Ordenamiento según preferencia
+    const copy = [...base];
+    if (sortBy === 'title') {
+      copy.sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+    } else if (sortBy === 'rating') {
+      const rankOrder = ['E','D','C','B','A','S','SS','SSS'];
+      copy.sort((a, b) => {
+        const ra = String(a.rating || '').toUpperCase();
+        const rb = String(b.rating || '').toUpperCase();
+        const ia = rankOrder.indexOf(ra);
+        const ib = rankOrder.indexOf(rb);
+        const sa = ia === -1 ? -1 : ia;
+        const sb = ib === -1 ? -1 : ib;
+        return sb - sa; // mayor rating primero
+      });
+    } else {
+      // recent (por defecto): updatedAt/createdAt descendente
+      copy.sort((a,b) => (b.updatedAt || b.createdAt || '').localeCompare(a.updatedAt || a.createdAt || ''));
+    }
+
+    return copy;
+  }, [items, tab, status, query, activeTags, sortBy]);
 
   // Detail via URL param
   const selectedItemId = searchParams.get('item') || '';
@@ -106,6 +141,14 @@ export default function LibraryPage() {
     const sp = new URLSearchParams(Array.from(searchParams.entries()));
     sp.set('item', String(id));
     router.replace(`/library?${sp.toString()}`);
+  };
+
+  const handleQuickStatusChange = (newStatus) => {
+    if (!selectedItem) return;
+    updateLibraryItem(selectedItem.id, {
+      status: newStatus,
+      updatedAt: new Date().toISOString(),
+    });
   };
   const closeItem = () => {
     const sp = new URLSearchParams(Array.from(searchParams.entries()));
@@ -136,37 +179,81 @@ export default function LibraryPage() {
       </div>
 
       {/* Tabs */}
-      <div className="mb-3 flex items-center gap-2">
-        {[{ id: 'all', label: 'Todos' }, ...TYPES].map(t => (
-          <button key={t.id} onClick={() => setTab(t.id)} className={`rounded-md px-3 py-1.5 text-xs font-semibold border ${tab===t.id ? (isDominio ? 'border-purple-500/50 bg-purple-900/30 text-purple-200' : 'border-indigo-500/50 bg-indigo-900/20 text-indigo-200') : 'border-slate-700/60 bg-slate-800/40 text-slate-300 hover:bg-slate-800/60'}`}>{t.label}</button>
-        ))}
+      <div className="mb-3 flex items-center gap-2 overflow-x-auto pb-1">
+        {[{ id: 'all', label: 'Todos', icon: '📚' }, ...TYPES.map(t => ({ ...t, icon: TYPE_ICONS[t.id] || '📦' }))].map(t => {
+          const active = tab === t.id;
+          const count = typeCounts[t.id] ?? 0;
+          return (
+            <button
+              key={t.id}
+              onClick={() => setTab(t.id)}
+              className={`flex items-center gap-2 rounded-md px-3 py-1.5 text-xs font-semibold border whitespace-nowrap ${active ? (isDominio ? 'border-purple-500/60 bg-purple-900/40 text-purple-100' : 'border-indigo-500/60 bg-indigo-900/30 text-indigo-100') : 'border-slate-700/60 bg-slate-800/40 text-slate-300 hover:bg-slate-800/60'}`}
+            >
+              <span>{t.icon}</span>
+              <span>{t.label}</span>
+              <span className="rounded-full bg-black/30 px-2 py-0.5 text-[10px] text-slate-200">{count}</span>
+            </button>
+          );
+        })}
       </div>
 
       {/* Filters */}
-      <div className="mb-4 grid grid-cols-1 gap-2 sm:grid-cols-7 items-start">
-        <input value={query} onChange={(e)=>setQuery(e.target.value)} className="sm:col-span-2 rounded-md border border-slate-700/60 bg-slate-800/60 px-3 py-2 text-sm text-slate-200 placeholder:text-slate-500" placeholder="Buscar por título..." />
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="text-[11px] text-slate-400">Estado:</span>
-          {[{ id: 'all', label: 'Todos' }, ...STATUSES].map(s => {
-            const active = status === s.id;
+      <div className="mb-4 grid grid-cols-1 gap-3 sm:grid-cols-7 items-start">
+        <input
+          value={query}
+          onChange={(e)=>setQuery(e.target.value)}
+          className="sm:col-span-2 rounded-lg border border-slate-700/70 bg-slate-900/60 px-3 py-2 text-sm text-slate-200 placeholder:text-slate-500 shadow-[0_0_0_1px_rgba(15,23,42,0.6)] focus:outline-none focus:ring-2 focus:ring-emerald-500/60"
+          placeholder="Buscar por título..."
+        />
+        <div className="flex flex-col gap-1">
+          <span className="text-[11px] uppercase tracking-wide text-slate-400/80">Estado</span>
+          <div className="flex flex-wrap items-center gap-1">
+            {[{ id: 'all', label: 'Todos' }, ...STATUSES].map(s => {
+              const active = status === s.id;
+              return (
+                <button
+                  key={s.id}
+                  type="button"
+                  onClick={()=>setStatus(s.id)}
+                  className={`rounded-full border px-3 py-1 text-[11px] font-medium transition-colors ${
+                    active
+                      ? 'border-emerald-500/70 bg-emerald-900/40 text-emerald-100'
+                      : 'border-slate-700/70 bg-slate-900/60 text-slate-300 hover:bg-slate-800/80'
+                  }`}
+                >
+                  {s.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+        <div className="sm:col-span-3 flex flex-wrap items-center gap-2">
+          {allTags.length > 0 && allTags.map((tg) => {
+            const active = activeTags.includes(tg);
             return (
-              <button key={s.id} onClick={()=>setStatus(s.id)} className={`rounded-md border px-3 py-2 text-xs font-semibold ${active ? 'border-emerald-500/50 bg-emerald-900/20 text-emerald-200' : 'border-slate-700/60 bg-slate-800/60 text-slate-300'}`}>{s.label}</button>
+              <button
+                key={tg}
+                onClick={() => setActiveTags(active ? activeTags.filter(t => t !== tg) : [...activeTags, tg])}
+                className={`rounded-full px-2 py-0.5 text-[11px] border ${active ? 'border-cyan-500/50 bg-cyan-900/30 text-cyan-200' : 'border-slate-700/60 bg-slate-800/60 text-slate-300'}`}
+              >
+                #{tg}
+              </button>
             );
           })}
         </div>
-        <div className="sm:col-span-4 flex flex-wrap items-center gap-2">
-          {allTags.length === 0 ? (
-            <span className="text-[11px] text-slate-500">Sin tags</span>
-          ) : (
-            allTags.map((tg) => {
-              const active = activeTags.includes(tg);
-              return (
-                <button key={tg} onClick={()=> setActiveTags(active ? activeTags.filter(t=>t!==tg) : [...activeTags, tg])} className={`rounded-full px-2 py-0.5 text-[11px] border ${active ? 'border-cyan-500/50 bg-cyan-900/30 text-cyan-200' : 'border-slate-700/60 bg-slate-800/60 text-slate-300'}`}>#{tg}</button>
-              );
-            })
-          )}
+        <div className="flex flex-col items-end gap-1 text-right text-xs text-slate-400">
+          <span className="text-[11px] uppercase tracking-wide text-slate-400/80">Ordenar por</span>
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value)}
+            className="mt-1 rounded-lg border border-slate-700/70 bg-slate-900/60 px-2 py-1 text-[11px] text-slate-200 shadow-[0_0_0_1px_rgba(15,23,42,0.6)] focus:outline-none focus:ring-2 focus:ring-sky-500/60"
+          >
+            <option value="recent">Recientes</option>
+            <option value="title">Título A-Z</option>
+            <option value="rating">Rating alto → bajo</option>
+          </select>
+          <div className="mt-1 text-[11px] text-slate-400/80">Resultados: <span className="text-slate-100 font-semibold">{filtered.length}</span></div>
         </div>
-        <div className="text-right text-xs text-slate-400">Resultados: {filtered.length}</div>
       </div>
 
       {/* Add button + modal */}
@@ -177,9 +264,23 @@ export default function LibraryPage() {
       {/* Grid only */}
       {filtered.length === 0 ? (
         <div className="rounded-xl border border-slate-700/60 bg-slate-800/30 p-8 text-center">
-          <div className="text-5xl mb-2">📚</div>
-          <div className="text-slate-200 font-semibold">Tu biblioteca está vacía</div>
-          <div className="text-slate-400 text-sm mb-4">Agrega tu primer ítem con el formulario de arriba</div>
+          <div className="text-5xl mb-2">
+            {items.length === 0 ? '📚' : currentTypeIcon}
+          </div>
+          <div className="text-slate-200 font-semibold">
+            {items.length === 0
+              ? 'Tu biblioteca está vacía'
+              : tab === 'all'
+                ? 'No hay ítems que coincidan con estos filtros'
+                : `No hay ${currentTypeLabel.toLowerCase()} que coincidan con estos filtros`}
+          </div>
+          <div className="text-slate-400 text-sm mb-4">
+            {items.length === 0
+              ? 'Agrega tu primer ítem con el formulario de arriba'
+              : (query || activeTags.length > 0 || status !== 'all')
+                ? 'Prueba ajustando la búsqueda, el estado o los tags para ver más resultados.'
+                : 'Agrega un nuevo ítem con el botón "Añadir ítem".'}
+          </div>
         </div>
       ) : (
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
@@ -271,6 +372,23 @@ export default function LibraryPage() {
                   ) : selectedItem.rating ? (
                     <span className="text-slate-300 text-xs">⭐ {selectedItem.rating}</span>
                   ) : null}
+                </div>
+                <div className="flex flex-wrap items-center gap-2 pt-1">
+                  <span className="text-[11px] text-slate-400 mr-1">Estado rápido:</span>
+                  <Button
+                    onClick={() => handleQuickStatusChange('in_progress')}
+                    variant={selectedItem.status === 'in_progress' ? 'ghost' : 'primary'}
+                    className="text-xs px-2 py-1"
+                  >
+                    ▶ En curso
+                  </Button>
+                  <Button
+                    onClick={() => handleQuickStatusChange('done')}
+                    variant={selectedItem.status === 'done' ? 'ghost' : 'primary'}
+                    className="text-xs px-2 py-1"
+                  >
+                    ✓ Completado
+                  </Button>
                 </div>
                 {Array.isArray(selectedItem.tags) && selectedItem.tags.length>0 && (
                   <div className="flex flex-wrap gap-1">

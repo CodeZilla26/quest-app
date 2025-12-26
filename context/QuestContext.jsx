@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useContext, useEffect, useMemo, useReducer } from 'react';
+import { createContext, useContext, useEffect, useMemo, useReducer, useState } from 'react';
 
 const QuestStateContext = createContext(null);
 const QuestDispatchContext = createContext(null);
@@ -70,6 +70,7 @@ function reducer(state, action) {
 
 export function QuestProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [hydrated, setHydrated] = useState(false);
 
   // Hidratar biblioteca y settings desde las nuevas APIs (/api/library y /api/settings)
   useEffect(() => {
@@ -103,9 +104,11 @@ export function QuestProvider({ children }) {
 
         if (!cancelled) {
           dispatch({ type: 'INIT', payload });
+          setHydrated(true);
         }
       } catch (err) {
         console.error('Error loading initial library/settings data:', err);
+        setHydrated(true);
       }
     }
 
@@ -117,6 +120,7 @@ export function QuestProvider({ children }) {
 
   // Persistir estado de biblioteca y settings en endpoints separados
   useEffect(() => {
+    if (!hydrated) return;
     // Pequeño debounce para evitar demasiados POST al escribir/editar
     const timeout = setTimeout(async () => {
       try {
@@ -147,7 +151,7 @@ export function QuestProvider({ children }) {
     }, 500);
 
     return () => clearTimeout(timeout);
-  }, [state.library, state.libraryFilter, state.theme]);
+  }, [hydrated, state.library, state.libraryFilter, state.theme]);
 
   const value = useMemo(() => state, [state]);
   const actions = useMemo(() => ({ dispatch }), [dispatch]);
