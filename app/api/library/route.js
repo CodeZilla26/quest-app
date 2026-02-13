@@ -12,6 +12,7 @@ const TYPE_FILES = {
   movie: path.join(DATA_DIR, 'movies.json'),
   series: path.join(DATA_DIR, 'series.json'),
   game: path.join(DATA_DIR, 'games.json'),
+  purchase: path.join(DATA_DIR, 'purchases.json'),
 };
 
 function normalizeType(type) {
@@ -21,6 +22,7 @@ function normalizeType(type) {
   if (t === 'movies' || t === 'movie' || t === 'pelicula' || t === 'películas' || t === 'peliculas') return 'movie';
   if (t === 'serie' || t === 'series') return 'series';
   if (t === 'games' || t === 'game' || t === 'juego' || t === 'juegos') return 'game';
+  if (t === 'purchase' || t === 'purchases' || t === 'compra' || t === 'compras') return 'purchase';
   return t;
 }
 
@@ -33,6 +35,29 @@ function dedupeById(items) {
     map.set(id, it);
   }
   return Array.from(map.values());
+}
+
+function normalizeRepeatableFields(item) {
+  const t = normalizeType(item && item.type);
+  const out = { ...(item || {}), type: t || (item && item.type) };
+
+  if (t === 'movie' || t === 'series') {
+    const raw = out.actors;
+    const arr = Array.isArray(raw) ? raw : (typeof raw === 'string' && raw.trim() ? [raw] : []);
+    out.actors = arr.map(a => String(a || '').trim()).filter(Boolean);
+  } else {
+    out.actors = [];
+  }
+
+  if (t === 'comic') {
+    const raw = out.comments;
+    const arr = Array.isArray(raw) ? raw : (typeof raw === 'string' && raw.trim() ? [raw] : []);
+    out.comments = arr.map(c => String(c || '').trim()).filter(Boolean);
+  } else {
+    out.comments = [];
+  }
+
+  return out;
 }
 
 async function ensureDataDir() {
@@ -76,7 +101,7 @@ export async function GET() {
     }
 
     if (aggregated.length > 0 || backup.length > 0) {
-      const merged = dedupeById([...(aggregated || []), ...(backup || [])]);
+      const merged = dedupeById([...(aggregated || []), ...(backup || [])]).map(normalizeRepeatableFields);
       return NextResponse.json({ library: merged });
     }
 
@@ -86,7 +111,7 @@ export async function GET() {
       const data = JSON.parse(raw || '{}');
       const lib = Array.isArray(data.library) ? data.library : [];
       if (lib.length > 0) {
-        return NextResponse.json({ library: lib });
+        return NextResponse.json({ library: lib.map(normalizeRepeatableFields) });
       }
     } catch {
       // Ignorar y probar quests.json como fuente legacy
@@ -97,7 +122,7 @@ export async function GET() {
       const rawQuests = await fs.readFile(QUESTS_FILE, 'utf8');
       const questsData = JSON.parse(rawQuests || '{}');
       const lib = Array.isArray(questsData.library) ? questsData.library : [];
-      return NextResponse.json({ library: lib });
+      return NextResponse.json({ library: lib.map(normalizeRepeatableFields) });
     } catch {
       // Si tampoco existe quests.json o falla el parseo, devolver vacío
       return NextResponse.json({ library: [] });
@@ -131,6 +156,7 @@ export async function POST(request) {
       movie: [],
       series: [],
       game: [],
+      purchase: [],
     };
 
     for (const item of library) {

@@ -12,6 +12,7 @@ const TYPES = [
   { id: 'movie', label: 'Películas' },
   { id: 'series', label: 'Series' },
   { id: 'game', label: 'Juegos' },
+  { id: 'purchase', label: 'Compras' },
 ];
 
 const STATUSES = [
@@ -20,7 +21,7 @@ const STATUSES = [
   { id: 'done', label: 'Completado' },
 ];
 
-const TYPE_ICONS = { comic: '📚', movie: '🎬', series: '📺', game: '🎮' };
+const TYPE_ICONS = { comic: '📚', movie: '🎬', series: '📺', game: '🎮', purchase: '🛒' };
 function statusClasses(id) {
   switch (id) {
     case 'done': return 'border-emerald-500/40 bg-emerald-500/10 text-emerald-200';
@@ -53,8 +54,8 @@ export default function LibraryPage() {
   const [query, setQuery] = useState('');
   const [status, setStatus] = useState('all');
   const [sortBy, setSortBy] = useState('recent'); // recent | title | rating
-  const [activeTags, setActiveTags] = useState([]);
   const [editItem, setEditItem] = useState(null);
+  const [suppressUrlEditOpen, setSuppressUrlEditOpen] = useState(false);
 
   const [addOpen, setAddOpen] = useState(false);
   const [lightboxSrc, setLightboxSrc] = useState('');
@@ -73,22 +74,14 @@ export default function LibraryPage() {
     });
     return counts;
   }, [items]);
-  const allTags = useMemo(() => {
-    const set = new Set();
-    (items||[]).forEach(it => (it.tags||[]).forEach(t => set.add(String(t))));
-    return Array.from(set).sort((a,b)=>a.localeCompare(b));
-  }, [items]);
-
   // Hydrate from URL
   useEffect(() => {
     const q = searchParams.get('query') || '';
     const st = searchParams.get('status') || 'all';
     const t = searchParams.get('type') || 'all';
-    const tg = searchParams.getAll('tag');
     setQuery(q);
     setStatus(st);
     setTab(t);
-    setActiveTags(tg);
   }, [searchParams]);
 
   // Push to URL when filters change
@@ -97,17 +90,16 @@ export default function LibraryPage() {
     if (query) sp.set('query', query);
     if (status !== 'all') sp.set('status', status);
     if (tab !== 'all') sp.set('type', tab);
-    activeTags.forEach(t => sp.append('tag', t));
     const qs = sp.toString();
     router.replace(`/library${qs ? `?${qs}` : ''}`);
-  }, [query, status, tab, activeTags]);
+  }, [query, status, tab]);
 
   const filtered = useMemo(() => {
     const base = (items || [])
       .filter((it) => (tab === 'all' ? true : it.type === tab))
       .filter((it) => (status === 'all' ? true : it.status === status))
       .filter((it) => (query.trim() ? (it.title || '').toLowerCase().includes(query.trim().toLowerCase()) : true))
-      .filter((it) => (activeTags.length ? (it.tags||[]).some(t => activeTags.includes(String(t))) : true));
+      ;
 
     // Ordenamiento según preferencia
     const copy = [...base];
@@ -130,35 +122,15 @@ export default function LibraryPage() {
     }
 
     return copy;
-  }, [items, tab, status, query, activeTags, sortBy]);
+  }, [items, tab, status, query, sortBy]);
 
-  // Detail via URL param
+  // Edit via URL param
   const selectedItemId = searchParams.get('item') || '';
   const selectedItem = (items || []).find(it => String(it.id) === String(selectedItemId));
   const editParam = searchParams.get('edit') === '1';
 
-  const openItem = (id) => {
-    const sp = new URLSearchParams(Array.from(searchParams.entries()));
-    sp.set('item', String(id));
-    router.replace(`/library?${sp.toString()}`);
-  };
-
-  const handleQuickStatusChange = (newStatus) => {
-    if (!selectedItem) return;
-    updateLibraryItem(selectedItem.id, {
-      status: newStatus,
-      updatedAt: new Date().toISOString(),
-    });
-  };
-  const closeItem = () => {
-    const sp = new URLSearchParams(Array.from(searchParams.entries()));
-    sp.delete('item');
-    sp.delete('edit');
-    const qs = sp.toString();
-    router.replace(`/library${qs ? `?${qs}` : ''}`);
-  };
-
   const openEditorFor = (id) => {
+    setSuppressUrlEditOpen(false);
     const sp = new URLSearchParams(Array.from(searchParams.entries()));
     sp.set('item', String(id));
     sp.set('edit', '1');
@@ -167,7 +139,11 @@ export default function LibraryPage() {
 
   // Sync URL edit param with modal state
   useEffect(() => {
-    if (editParam && selectedItem) setEditItem(selectedItem);
+    if (!editParam && suppressUrlEditOpen) {
+      setSuppressUrlEditOpen(false);
+      return;
+    }
+    if (editParam && selectedItem && !suppressUrlEditOpen) setEditItem(selectedItem);
   }, [editParam, selectedItem]);
 
   // (upload handled inside modals)
@@ -227,20 +203,7 @@ export default function LibraryPage() {
             })}
           </div>
         </div>
-        <div className="sm:col-span-3 flex flex-wrap items-center gap-2">
-          {allTags.length > 0 && allTags.map((tg) => {
-            const active = activeTags.includes(tg);
-            return (
-              <button
-                key={tg}
-                onClick={() => setActiveTags(active ? activeTags.filter(t => t !== tg) : [...activeTags, tg])}
-                className={`rounded-full px-2 py-0.5 text-[11px] border ${active ? 'border-cyan-500/50 bg-cyan-900/30 text-cyan-200' : 'border-slate-700/60 bg-slate-800/60 text-slate-300'}`}
-              >
-                #{tg}
-              </button>
-            );
-          })}
-        </div>
+        <div className="sm:col-span-3" />
         <div className="flex flex-col items-end gap-1 text-right text-xs text-slate-400">
           <span className="text-[11px] uppercase tracking-wide text-slate-400/80">Ordenar por</span>
           <select
@@ -277,158 +240,96 @@ export default function LibraryPage() {
           <div className="text-slate-400 text-sm mb-4">
             {items.length === 0
               ? 'Agrega tu primer ítem con el formulario de arriba'
-              : (query || activeTags.length > 0 || status !== 'all')
-                ? 'Prueba ajustando la búsqueda, el estado o los tags para ver más resultados.'
+              : (query || status !== 'all')
+                ? 'Prueba ajustando la búsqueda o el estado para ver más resultados.'
                 : 'Agrega un nuevo ítem con el botón "Añadir ítem".'}
           </div>
         </div>
       ) : (
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
-          {filtered.map((it) => (
-            <div key={it.id} className="group relative rounded-lg border border-slate-700/60 bg-slate-800/40 p-2 hover:shadow-lg hover:shadow-black/20 transition-transform">
-              <div className="absolute right-2 top-2 hidden gap-1 group-hover:flex z-10">
-                <button title="Editar" className="rounded-md border border-slate-700/60 bg-slate-800/80 px-2 py-1 text-[12px] text-slate-200 hover:bg-slate-700/60" onClick={() => openEditorFor(it.id)}>🖊️</button>
-                <button title="Eliminar" className="rounded-md border border-slate-700/60 bg-slate-800/80 px-2 py-1 text-[12px] text-slate-200 hover:bg-slate-700/60" onClick={() => { if (confirm('¿Eliminar este ítem de biblioteca?')) removeLibraryItem(it.id); }}>🗑️</button>
-              </div>
-              {/* Rank badge overlay */}
-              {typeof it.rating === 'string' && rankClasses(it.rating) && (
-                <div className="absolute left-2 top-2 z-10">
-                  <span className={`rounded px-2 py-1 text-xs font-bold shadow-lg ${rankClasses(it.rating)}`}>{String(it.rating).toUpperCase()}</span>
-                </div>
-              )}
-              <div className="aspect-[3/4] w-full overflow-hidden rounded-md bg-slate-900/60 cursor-zoom-in" onClick={(e) => { e.stopPropagation(); const src = it.coverPath || it.coverUrl; if (src) setLightboxSrc(src); }}>
-                {it.coverPath ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={it.coverPath} alt={it.title} className="h-full w-full object-cover" />
-                ) : it.coverUrl ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={it.coverUrl} alt={it.title} className="h-full w-full object-cover" />
-                ) : (
-                  <div className="flex h-full w-full items-center justify-center text-slate-500 text-xs">Sin portada</div>
-                )}
-              </div>
-              <div className="mt-2">
-                <div className="truncate text-[13px] font-semibold text-slate-100 cursor-pointer" title={it.title} onClick={() => openItem(it.id)}>{it.title}</div>
-                <div className="mt-1 flex items-center gap-2 text-[10px]">
-                  <span className="rounded-full border px-2 py-0.5 text-[10px] text-slate-200 bg-slate-800/60 border-slate-700/60">
-                    {TYPE_ICONS[it.type] || '📦'} {TYPES.find(t=>t.id===it.type)?.label || it.type}
-                  </span>
-                  <span className={`rounded-full border px-2 py-0.5 text-[10px] ${statusClasses(it.status)}`}>
-                    {STATUSES.find(s=>s.id===it.status)?.label || it.status}
-                  </span>
-                </div>
-                {Array.isArray(it.tags) && it.tags.length>0 && (
-                  <div className="mt-1 flex flex-wrap gap-1">
-                    {it.tags.map((tg, i)=> (<span key={i} className="rounded-full bg-slate-700/60 px-2 py-0.5 text-[10px] text-slate-200">#{tg}</span>))}
-                  </div>
-                )}
-                <div className="mt-1 flex items-center gap-2 text-[11px] text-slate-400">
-                  {it.year ? <span>{it.year}</span> : null}
-                  {typeof it.rating === 'string' && rankClasses(it.rating) ? (
-                    <span className={`rounded px-2 py-0.5 text-[10px] font-bold ${rankClasses(it.rating)}`}>{String(it.rating).toUpperCase()}</span>
-                  ) : it.rating ? (
-                    <span>⭐ {it.rating}</span>
-                  ) : null}
-                  {it.platform && <span>🎮 {it.platform}</span>}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+          {filtered.map((it) => {
+            const coverSrc = it.coverPath || it.coverUrl;
+            const typeLabel = TYPES.find(t=>t.id===it.type)?.label || it.type;
+            const statusLabel = STATUSES.find(s=>s.id===it.status)?.label || it.status;
 
-      {/* Large centered modal detail */}
-      {selectedItem && (
-        <div className="fixed inset-0 z-[1200] flex items-center justify-center p-4">
-          <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={closeItem} />
-          <div className={`relative w-full max-w-4xl rounded-2xl border p-4 shadow-2xl ${isDominio ? 'border-purple-700/60 bg-slate-900/95' : 'border-slate-700/60 bg-slate-900/95'}`}>
-            <div className="mb-3 flex items-center justify-between gap-2">
-              <div className="truncate pr-2 text-base font-semibold text-slate-100">{selectedItem.title}</div>
-              <Button variant="ghost" className="px-2 py-1 text-xs" onClick={closeItem}>Cerrar</Button>
-            </div>
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-              <div className="aspect-[3/4] w-full overflow-hidden rounded-lg bg-slate-900/60 cursor-zoom-in" onClick={(e)=>{ e.stopPropagation(); const src = selectedItem.coverPath || selectedItem.coverUrl; if(src) setLightboxSrc(src); }}>
-                {selectedItem.coverPath ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={selectedItem.coverPath} alt={selectedItem.title} className="h-full w-full object-cover" />
-                ) : selectedItem.coverUrl ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={selectedItem.coverUrl} alt={selectedItem.title} className="h-full w-full object-cover" />
-                ) : (
-                  <div className="flex h-full w-full items-center justify-center text-slate-500 text-sm">Sin portada</div>
-                )}
-              </div>
-              <div className="space-y-3">
-                <div className="flex flex-wrap items-center gap-2 text-[12px]">
-                  <span className="rounded-full border px-2 py-0.5 text-[10px] text-slate-200 bg-slate-800/60 border-slate-700/60">
-                    {TYPE_ICONS[selectedItem.type] || '📦'} {TYPES.find(t=>t.id===selectedItem.type)?.label || selectedItem.type}
-                  </span>
-                  <span className={`rounded-full border px-2 py-0.5 text-[10px] ${statusClasses(selectedItem.status)}`}>
-                    {STATUSES.find(s=>s.id===selectedItem.status)?.label || selectedItem.status}
-                  </span>
-                  {selectedItem.platform && <span className="text-slate-300 text-xs">🎮 {selectedItem.platform}</span>}
-                  {typeof selectedItem.rating === 'string' && rankClasses(selectedItem.rating) ? (
-                    <span className={`rounded px-2 py-1 text-xs font-bold ${rankClasses(selectedItem.rating)}`}>{String(selectedItem.rating).toUpperCase()}</span>
-                  ) : selectedItem.rating ? (
-                    <span className="text-slate-300 text-xs">⭐ {selectedItem.rating}</span>
-                  ) : null}
+            return (
+              <div key={it.id} className="group relative overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-900/40 shadow-[0_10px_30px_rgba(0,0,0,0.25)] transition-transform hover:-translate-y-0.5">
+                <div className="absolute right-2 top-2 hidden gap-1 group-hover:flex z-20">
+                  <button title="Editar" className="rounded-md border border-slate-700/60 bg-slate-950/80 px-2 py-1 text-[12px] text-slate-100 hover:bg-slate-800/80" onClick={() => openEditorFor(it.id)}>🖊️</button>
+                  <button title="Eliminar" className="rounded-md border border-slate-700/60 bg-slate-950/80 px-2 py-1 text-[12px] text-slate-100 hover:bg-slate-800/80" onClick={() => { if (confirm('¿Eliminar este ítem de biblioteca?')) removeLibraryItem(it.id); }}>🗑️</button>
                 </div>
-                <div className="flex flex-wrap items-center gap-2 pt-1">
-                  <span className="text-[11px] text-slate-400 mr-1">Estado rápido:</span>
-                  <Button
-                    onClick={() => handleQuickStatusChange('in_progress')}
-                    variant={selectedItem.status === 'in_progress' ? 'ghost' : 'primary'}
-                    className="text-xs px-2 py-1"
-                  >
-                    ▶ En curso
-                  </Button>
-                  <Button
-                    onClick={() => handleQuickStatusChange('done')}
-                    variant={selectedItem.status === 'done' ? 'ghost' : 'primary'}
-                    className="text-xs px-2 py-1"
-                  >
-                    ✓ Completado
-                  </Button>
-                </div>
-                {Array.isArray(selectedItem.tags) && selectedItem.tags.length>0 && (
-                  <div className="flex flex-wrap gap-1">
-                    {selectedItem.tags.map((tg,i)=> (<span key={i} className="rounded-full bg-slate-700/60 px-2 py-0.5 text-[10px] text-slate-200">#{tg}</span>))}
+
+                {/* Cover */}
+                <div className="relative aspect-[3/4] w-full bg-slate-900/60 cursor-zoom-in" onClick={(e) => { e.stopPropagation(); if (coverSrc) setLightboxSrc(coverSrc); }}>
+                  {coverSrc ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={coverSrc} alt={it.title} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center text-slate-500 text-xs">Sin portada</div>
+                  )}
+
+                  {/* Bottom gradient overlay */}
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+
+                  {/* Title + meta */}
+                  <div className="absolute inset-x-0 bottom-0 z-10 p-3">
+                    <div className="flex items-start justify-between gap-2">
+                      <button type="button" onClick={() => openEditorFor(it.id)} className="text-left">
+                        <div className="line-clamp-2 text-[13px] font-semibold leading-snug text-slate-100 drop-shadow-sm">{it.title}</div>
+                      </button>
+
+                      {typeof it.rating === 'string' && rankClasses(it.rating) ? (
+                        <span className={`shrink-0 rounded-md px-2 py-1 text-[11px] font-extrabold shadow-lg ${rankClasses(it.rating)}`}>{String(it.rating).toUpperCase()}</span>
+                      ) : null}
+                    </div>
+
+                    <div className="mt-2 flex flex-wrap items-center gap-1.5 text-[10px]">
+                      <span className="inline-flex items-center gap-1 rounded-full border border-slate-700/60 bg-slate-900/70 px-2 py-0.5 text-slate-200">
+                        <span>{TYPE_ICONS[it.type] || '📦'}</span>
+                        <span>{typeLabel}</span>
+                      </span>
+                      <span className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 ${statusClasses(it.status)}`}>
+                        <span>{it.status === 'done' ? '✓' : it.status === 'in_progress' ? '▶' : '…'}</span>
+                        <span className="text-[10px]">{statusLabel}</span>
+                      </span>
+                      {it.year ? (
+                        <span className="inline-flex items-center gap-1 rounded-full border border-slate-700/60 bg-slate-900/70 px-2 py-0.5 text-slate-200">
+                          <span>📅</span>
+                          <span>{it.year}</span>
+                        </span>
+                      ) : null}
+                      {it.platform ? (
+                        <span className="inline-flex items-center gap-1 rounded-full border border-slate-700/60 bg-slate-900/70 px-2 py-0.5 text-slate-200">
+                          <span>🎮</span>
+                          <span className="max-w-[120px] truncate">{it.platform}</span>
+                        </span>
+                      ) : null}
+                      {it.type === 'purchase' && it.price != null && it.price !== '' ? (
+                        <span className="inline-flex items-center gap-1 rounded-full border border-slate-700/60 bg-slate-900/70 px-2 py-0.5 text-slate-200">
+                          <span>💲</span>
+                          <span>{it.price}</span>
+                        </span>
+                      ) : null}
+                    </div>
                   </div>
-                )}
-                {/* Format and Chapters info */}
-                {selectedItem.type === 'comic' && (
-                  <div className="text-xs text-slate-300">
-                    <span className="font-semibold">Formato:</span> {selectedItem.format ? (selectedItem.format === 'manga' ? 'Manga' : selectedItem.format === 'manhwa' ? 'Manhwa' : selectedItem.format === 'manhua' ? 'Manhua' : selectedItem.format) : '—'}
-                  </div>
-                )}
-                {(selectedItem.type === 'comic' || selectedItem.type === 'series') && (
-                  <div className="text-xs text-slate-300">
-                    <span className="font-semibold">Capítulos:</span> {selectedItem.chapters != null && selectedItem.chapters !== '' ? selectedItem.chapters : '—'}
-                  </div>
-                )}
-                <div className="text-xs text-slate-400">
-                  <div>Creado: {selectedItem.createdAt ? new Date(selectedItem.createdAt).toLocaleString() : '—'}</div>
-                  <div>Actualizado: {selectedItem.updatedAt ? new Date(selectedItem.updatedAt).toLocaleString() : '—'}</div>
-                </div>
-                <div className="pt-2 flex items-center gap-2">
-                  <Button onClick={() => openEditorFor(selectedItem.id)} className={`${isDominio ? 'bg-gradient-to-r from-purple-600 to-fuchsia-600' : 'bg-gradient-to-r from-indigo-600 to-blue-600'} text-xs`}>Editar</Button>
-                  <Button variant="danger" onClick={() => { if (confirm('¿Eliminar este ítem de biblioteca?')) { removeLibraryItem(selectedItem.id); closeItem(); } }} className="text-xs">Eliminar</Button>
                 </div>
               </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
       )}
 
       <LibraryEditModal open={!!editItem} item={editItem} onClose={() => {
+        setSuppressUrlEditOpen(true);
         setEditItem(null);
         const sp = new URLSearchParams(Array.from(searchParams.entries()));
         sp.delete('edit');
+        sp.delete('item');
         const qs = sp.toString();
         router.replace(`/library${qs ? `?${qs}` : ''}`);
       }} />
       <LibraryAddModal open={addOpen} onClose={() => setAddOpen(false)} />
-      <ImageLightbox src={lightboxSrc} alt={selectedItem?.title || 'Portada'} onClose={()=> setLightboxSrc('')} />
+      <ImageLightbox src={lightboxSrc} alt={'Portada'} onClose={()=> setLightboxSrc('')} />
     </main>
   );
 }

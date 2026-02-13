@@ -13,7 +13,9 @@
       "rating": "B",
       "coverPath": "/covers/cover_1762319752025_zot7sh46kb.jpg",
       "chapters": "40",
-      "updatedAt": "2025-11-05T05:40:39.794Z"
+      "updatedAt": "2025-11-05T05:40:39.794Z",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_uecp0tfdz7",
@@ -28,7 +30,9 @@
       "rating": "",
       "coverPath": "/covers/cover_1763853102963_ax74yessvdr.jpg",
       "chapters": 1,
-      "format": "manhua"
+      "format": "manhua",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_giuxpu5iszs",
@@ -43,7 +47,9 @@
       "rating": "",
       "coverPath": "/covers/cover_1763853208488_u19slttarbh.jpg",
       "chapters": 1,
-      "format": "manhua"
+      "format": "manhua",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_w30u3jekfik",
@@ -60,7 +66,9 @@
       "chapters": 1,
       "format": "manhua",
       "link": "",
-      "updatedAt": "2025-12-02T04:07:30.113Z"
+      "updatedAt": "2025-12-02T04:07:30.113Z",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_jjj31r56h2m",
@@ -76,7 +84,9 @@
       "coverPath": "/covers/cover_1763875110286_dvon3n5hyaq.jpg",
       "chapters": 1,
       "format": "manhua",
-      "updatedAt": "2025-11-23T05:46:24.289Z"
+      "updatedAt": "2025-11-23T05:46:24.289Z",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_7ixrplmf11k",
@@ -91,12 +101,14 @@
       "rating": "",
       "coverPath": "/covers/cover_1763875240293_mekg6gmlx59.png",
       "chapters": 1,
-      "format": "manhua"
+      "format": "manhua",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_6izftw94zi4",
       "type": "comic",
-      "status": "backlog",
+      "status": "in_progress",
       "createdAt": "2025-11-23T05:23:38.870Z",
       "tags": [],
       "coverBase64": "",
@@ -106,7 +118,19 @@
       "rating": "SSS",
       "coverPath": "/covers/cover_1763875395094_6nhnqeoq1iq.jpg",
       "chapters": 285,
-      "format": "manhua"
+      "format": "manhua",
+      "actors": [],
+      "comments": [
+        "Nanomáquina de séptima generación",
+        "Herencia: Primer Demonio Celestial",
+        "Tecnica de Espada: El arte de la espada del dios demonio",
+        "Tecnica de Espada y Respiracion: Fuerza de espada del demonio celestial"
+      ],
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "link": "",
+      "updatedAt": "2026-01-18T01:34:24.246Z"
     },
     {
       "id": "lib_mhdk8l2e6wg",
@@ -123,7 +147,9 @@
       "chapters": 10,
       "format": "manhua",
       "link": "",
-      "updatedAt": "2025-12-02T03:59:41.921Z"
+      "updatedAt": "2025-12-02T03:59:41.921Z",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_h1f1vgw2uhr",
@@ -140,7 +166,9 @@
       "chapters": 20,
       "format": "manhwa",
       "link": "",
-      "updatedAt": "2025-12-02T02:54:33.082Z"
+      "updatedAt": "2025-12-02T02:54:33.082Z",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_dqva0zf27vs",
@@ -155,7 +183,9 @@
       "rating": "",
       "coverPath": "/covers/cover_1763875889152_42x499nqaos.jpg",
       "chapters": 1,
-      "format": "manhua"
+      "format": "manhua",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_1uhyvykvnnq",
@@ -171,7 +201,9 @@
       "coverPath": "/covers/cover_1763875979874_tmofw0dartc.jpg",
       "chapters": 1,
       "format": "manhua",
-      "updatedAt": "2025-11-23T05:51:45.867Z"
+      "updatedAt": "2025-11-23T05:51:45.867Z",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_ll8wr3m43t",
@@ -186,7 +218,9 @@
       "rating": "S",
       "coverPath": "/covers/cover_1763876079846_e1xlgz7ztl.jpg",
       "chapters": 1,
-      "format": "manhwa"
+      "format": "manhwa",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_5j1uxvyojk8",
@@ -201,7 +235,9 @@
       "rating": "SS",
       "coverPath": "/covers/cover_1763877178329_gjdpld7m5kf.jpg",
       "chapters": 1,
-      "format": "manhua"
+      "format": "manhua",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_ufq5pgvfgwp",
@@ -217,7 +253,9 @@
       "coverPath": "/covers/cover_1763878369001_vdabxsqial.jpg",
       "chapters": 1,
       "format": "manhua",
-      "updatedAt": "2025-11-23T06:13:00.224Z"
+      "updatedAt": "2025-11-23T06:13:00.224Z",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_fra49fd5bvf",
@@ -232,7 +270,9 @@
       "rating": "SS",
       "coverPath": "/covers/cover_1763878512692_qmdwtanfrwf.jpg",
       "chapters": 1,
-      "format": "manhwa"
+      "format": "manhwa",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_ru7v4asewe",
@@ -247,7 +287,9 @@
       "rating": "A",
       "coverPath": "/covers/cover_1763878600241_qetl7oj4cui.jpg",
       "chapters": 1,
-      "format": "manhwa"
+      "format": "manhwa",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_0ngfubvm1nff",
@@ -262,7 +304,9 @@
       "rating": "SSS",
       "coverPath": "/covers/cover_1763878687578_ihate5m6h0d.jpg",
       "chapters": 400,
-      "format": "manhwa"
+      "format": "manhwa",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_0jbdj3p76zbc",
@@ -277,7 +321,9 @@
       "rating": "A",
       "coverPath": "/covers/cover_1763878989772_w76ylix1j4s.png",
       "chapters": 1,
-      "format": "manhwa"
+      "format": "manhwa",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_5bjkob0dido",
@@ -292,7 +338,9 @@
       "rating": "A",
       "coverPath": "/covers/cover_1763879089791_w40xhyem4lm.png",
       "chapters": "",
-      "format": "manhwa"
+      "format": "manhwa",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_nnvc75np7dm",
@@ -308,7 +356,9 @@
       "coverPath": "/covers/cover_1763940897353_idgj9aktqnq.jpg",
       "chapters": 1,
       "format": "manhwa",
-      "updatedAt": "2025-11-23T23:36:13.166Z"
+      "updatedAt": "2025-11-23T23:36:13.166Z",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_1ctmfepoobi",
@@ -323,7 +373,9 @@
       "rating": "B",
       "coverPath": "/covers/cover_1763941013459_cqynm6tj7i8.png",
       "chapters": 1,
-      "format": "manhwa"
+      "format": "manhwa",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_crllaexnemg",
@@ -338,7 +390,9 @@
       "rating": "S",
       "coverPath": "/covers/cover_1763941144774_hznw212a7a.png",
       "chapters": 1,
-      "format": "manhwa"
+      "format": "manhwa",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_9bc47xpqpra",
@@ -353,7 +407,9 @@
       "rating": "B",
       "coverPath": "/covers/cover_1763941759493_js15qam18ug.jpg",
       "chapters": 117,
-      "format": "manhwa"
+      "format": "manhwa",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_55arttp9fvn",
@@ -368,7 +424,9 @@
       "rating": "A",
       "coverPath": "/covers/cover_1763941825792_5jh7qybv0ih.jpg",
       "chapters": 1,
-      "format": "manhwa"
+      "format": "manhwa",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_8vsumhi8bka",
@@ -383,7 +441,9 @@
       "rating": "A",
       "coverPath": "/covers/cover_1763941905327_mmx6lpjy23.jpg",
       "chapters": 1,
-      "format": "manhwa"
+      "format": "manhwa",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_u3md7cyblum",
@@ -398,7 +458,9 @@
       "rating": "S",
       "coverPath": "/covers/cover_1763942030100_6vkkfb9kehm.jpg",
       "chapters": 1,
-      "format": "manhwa"
+      "format": "manhwa",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_xngaqnn5bs",
@@ -413,7 +475,9 @@
       "rating": "B",
       "coverPath": "/covers/cover_1763942114179_sy55lq8ubsa.jpg",
       "chapters": 1,
-      "format": "manhwa"
+      "format": "manhwa",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_8n6ew7c57g3",
@@ -429,7 +493,9 @@
       "coverPath": "/covers/cover_1763942170221_sfpf81jepn9.jpg",
       "chapters": 1,
       "format": "manhwa",
-      "updatedAt": "2025-11-23T23:56:19.880Z"
+      "updatedAt": "2025-11-23T23:56:19.880Z",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_u2rd7reaaef",
@@ -444,7 +510,9 @@
       "rating": "B",
       "coverPath": "/covers/cover_1763942480922_0sy7x3x3oz49.jpg",
       "chapters": 1,
-      "format": "manhwa"
+      "format": "manhwa",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_z5c2ye7x49b",
@@ -459,7 +527,9 @@
       "rating": "B",
       "coverPath": "/covers/cover_1763942829292_xy8l8a4qemp.jpg",
       "chapters": 1,
-      "format": "manga"
+      "format": "manga",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_jx1m1jckgf",
@@ -475,7 +545,9 @@
       "coverPath": "/covers/cover_1763943950568_3gvsj2smkhw.jpg",
       "chapters": 1,
       "format": "manhwa",
-      "updatedAt": "2025-11-24T00:25:57.581Z"
+      "updatedAt": "2025-11-24T00:25:57.581Z",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_b1cpddj5ahc",
@@ -492,7 +564,9 @@
       "chapters": 17,
       "format": "manhua",
       "updatedAt": "2025-11-24T00:53:45.682Z",
-      "link": "https://manhwa-espanol.com/manga/seor-de-las-invocaciones/"
+      "link": "https://manhwa-espanol.com/manga/seor-de-las-invocaciones/",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_k8b2f7qk7u",
@@ -508,7 +582,9 @@
       "coverPath": "/covers/cover_1763956424601_vf6lioi9oi.jpg",
       "chapters": 1,
       "format": "manga",
-      "link": "https://manhwatop.com/manga/the-awakening-of-light-magic/"
+      "link": "https://manhwatop.com/manga/the-awakening-of-light-magic/",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_qeck9stg2u",
@@ -524,7 +600,9 @@
       "coverPath": "/covers/cover_1764640816194_5849obbzzuw.jpg",
       "chapters": 1,
       "format": "manhwa",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_gnegv3lx3yj",
@@ -540,7 +618,9 @@
       "coverPath": "/covers/cover_1764641834915_0y2rvl619szl.jpg",
       "chapters": 23,
       "format": "manhwa",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_r5dpoezz0op",
@@ -556,7 +636,9 @@
       "coverPath": "/covers/cover_1764642256426_pl679ike4xd.jpg",
       "chapters": 1,
       "format": "manhwa",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_tbonoakrjx9",
@@ -572,7 +654,9 @@
       "coverPath": "/covers/cover_1764642335722_wpb5kuart4.jpg",
       "chapters": 1,
       "format": "manhwa",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_4ext3ofau8q",
@@ -588,7 +672,9 @@
       "coverPath": "/covers/cover_1764642506058_m0tkfvfaumm.jpg",
       "chapters": 1,
       "format": "manhua",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_u7url3y0io8",
@@ -605,7 +691,9 @@
       "chapters": 50,
       "format": "manhwa",
       "link": "",
-      "updatedAt": "2025-12-09T20:05:02.840Z"
+      "updatedAt": "2025-12-09T20:05:02.840Z",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_vfsmolcvyi",
@@ -621,7 +709,9 @@
       "coverPath": "/covers/cover_1764643878777_s61p6w01zh.jpg",
       "chapters": 11,
       "format": "manhwa",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_e32272byluq",
@@ -637,7 +727,9 @@
       "coverPath": "/covers/cover_1764644823202_9trc3d1m1f.jpg",
       "chapters": 60,
       "format": "manhua",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_orcbt36oprm",
@@ -653,7 +745,9 @@
       "coverPath": "/covers/cover_1764645210112_0h1x03jmm3rd.jpg",
       "chapters": 1,
       "format": "manhwa",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_mbp1i3d75bs",
@@ -670,7 +764,9 @@
       "chapters": 1,
       "format": "manhwa",
       "link": "",
-      "updatedAt": "2025-12-02T03:52:37.541Z"
+      "updatedAt": "2025-12-02T03:52:37.541Z",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_st1c01nlrm",
@@ -686,7 +782,9 @@
       "coverPath": "/covers/cover_1764647782731_id1qa1za0ag.jpg",
       "chapters": 1,
       "format": "manhwa",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_evkucmpaxcg",
@@ -702,7 +800,9 @@
       "coverPath": "/covers/cover_1764647884292_v5hla285vwq.jpg",
       "chapters": 1,
       "format": "manhwa",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_6kk6r7xn96i",
@@ -718,7 +818,9 @@
       "coverPath": "/covers/cover_1764648595589_ox7egg8px.jpg",
       "chapters": 1,
       "format": "manhua",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_fhvldkrwvq",
@@ -734,7 +836,9 @@
       "coverPath": "/covers/cover_1764648748742_u0g82jhy17.jpg",
       "chapters": 1,
       "format": "manhwa",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_l9vqczsur7q",
@@ -750,7 +854,9 @@
       "coverPath": "/covers/cover_1764649063591_lan77rxeaw.jpg",
       "chapters": 515,
       "format": "manhua",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_ezfds5m2aui",
@@ -766,7 +872,9 @@
       "coverPath": "/covers/cover_1764649112220_69485a8bt06.jpg",
       "chapters": 10,
       "format": "manhua",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_505lp7i9b4n",
@@ -782,7 +890,9 @@
       "coverPath": "/covers/cover_1764649510153_4uxs15tcs54.jpg",
       "chapters": 10,
       "format": "manhwa",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_k498qcr7bn",
@@ -798,7 +908,9 @@
       "coverPath": "/covers/cover_1764649697057_g1888ysa1xr.jpg",
       "chapters": 30,
       "format": "manhua",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_0slfzx6vuhel",
@@ -814,7 +926,9 @@
       "coverPath": "/covers/cover_1764649901502_vffe5hdt1dd.jpg",
       "chapters": 10,
       "format": "manhua",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_ov8kg194lx9",
@@ -830,7 +944,9 @@
       "coverPath": "/covers/cover_1764650014971_f7b664h3bck.jpg",
       "chapters": 10,
       "format": "manhwa",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_udcvaedujh",
@@ -846,7 +962,9 @@
       "coverPath": "/covers/cover_1764650260667_lvcpbt3qe1o.jpg",
       "chapters": 20,
       "format": "manga",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_yzf1y6paiz",
@@ -862,7 +980,9 @@
       "coverPath": "/covers/cover_1764650730351_pwyj718isoh.jpg",
       "chapters": 20,
       "format": "manhwa",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_snc7ju9iro",
@@ -879,7 +999,9 @@
       "chapters": 50,
       "format": "manhwa",
       "link": "",
-      "updatedAt": "2025-12-09T20:02:33.661Z"
+      "updatedAt": "2025-12-09T20:02:33.661Z",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_r3bgiba111",
@@ -895,7 +1017,9 @@
       "coverPath": "/covers/cover_1765310866131_a3gc61hyluu.jpg",
       "chapters": 1,
       "format": "manga",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_hisgeflsn9w",
@@ -911,7 +1035,9 @@
       "coverPath": "/covers/cover_1765311013176_aab2qwi4k4v.jpg",
       "chapters": 1,
       "format": "manhua",
-      "link": "https://comick.dev/comic/if-i-don-t-die-soon-i-ll-become-the-ruler-of-the-demon-realm"
+      "link": "https://comick.dev/comic/if-i-don-t-die-soon-i-ll-become-the-ruler-of-the-demon-realm",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_0gk9hf6rki6a",
@@ -928,7 +1054,9 @@
       "chapters": 1,
       "format": "manhwa",
       "link": "https://lectortaurus.com/manga/renacimiento-del-asesino-de-dioses/",
-      "updatedAt": "2025-12-09T20:21:20.702Z"
+      "updatedAt": "2025-12-09T20:21:20.702Z",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_o7xy36ueydr",
@@ -945,7 +1073,9 @@
       "chapters": 1,
       "format": "manhwa",
       "link": "",
-      "updatedAt": "2025-12-09T21:23:39.061Z"
+      "updatedAt": "2025-12-09T21:23:39.061Z",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_vxyeyl1jibr",
@@ -961,7 +1091,9 @@
       "coverPath": "/covers/cover_1765312279421_jftr7pb4g3.jpg",
       "chapters": 1,
       "format": "manhua",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_mf0e9kie0u",
@@ -977,7 +1109,9 @@
       "coverPath": "/covers/cover_1765312545270_xnesha5pr8m.jpg",
       "chapters": 20,
       "format": "manhwa",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_3u0ke0nb00a",
@@ -993,7 +1127,9 @@
       "coverPath": "/covers/cover_1765313410031_tvpra1qo3l9.jpg",
       "chapters": 1,
       "format": "manhwa",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_odij6glabu",
@@ -1009,7 +1145,9 @@
       "coverPath": "/covers/cover_1765313792805_lyz5pqn09ad.jpg",
       "chapters": 1,
       "format": "manhwa",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_rcc4jtjuvm",
@@ -1025,7 +1163,9 @@
       "coverPath": "/covers/cover_1765315041657_enyct4901yr.jpg",
       "chapters": 10,
       "format": "manhwa",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_7f8s0jhvqid",
@@ -1041,7 +1181,9 @@
       "coverPath": "/covers/cover_1765315099915_mrawny9s4n9.jpg",
       "chapters": 20,
       "format": "manhwa",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_ntxr7amvsol",
@@ -1058,7 +1200,9 @@
       "chapters": 60,
       "format": "manhwa",
       "link": "",
-      "updatedAt": "2025-12-09T21:20:34.459Z"
+      "updatedAt": "2025-12-09T21:20:34.459Z",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_qjkkrluzm4",
@@ -1075,7 +1219,9 @@
       "chapters": 60,
       "format": "manhua",
       "link": "",
-      "updatedAt": "2025-12-09T21:23:14.239Z"
+      "updatedAt": "2025-12-09T21:23:14.239Z",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_4htebp68ssh",
@@ -1091,7 +1237,9 @@
       "coverPath": "/covers/cover_1765315589598_eroayib68j8.jpg",
       "chapters": 23,
       "format": "manhwa",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_cgggmijglt",
@@ -1107,7 +1255,9 @@
       "coverPath": "/covers/cover_1765315873543_9v51mbzv19d.jpg",
       "chapters": 1,
       "format": "manhwa",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_mn6159p9ng",
@@ -1124,7 +1274,9 @@
       "chapters": 10,
       "format": "manhwa",
       "link": "",
-      "updatedAt": "2025-12-09T21:43:29.159Z"
+      "updatedAt": "2025-12-09T21:43:29.159Z",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_pfds1divf7r",
@@ -1140,7 +1292,9 @@
       "coverPath": "/covers/cover_1765316774820_42psyco7h1s.jpg",
       "chapters": 11,
       "format": "manhwa",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_vfrkltnwbv",
@@ -1156,7 +1310,9 @@
       "coverPath": "/covers/cover_1765316874469_17kzckctht9.jpg",
       "chapters": 1,
       "format": "manhua",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_1zitme673zl",
@@ -1172,7 +1328,9 @@
       "coverPath": "/covers/cover_1765316997150_wgmoeqbjzsg.jpg",
       "chapters": 43,
       "format": "manhwa",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_jmpi28kb8mn",
@@ -1188,7 +1346,9 @@
       "coverPath": "/covers/cover_1765317692635_nmjy4tp7u3f.jpg",
       "chapters": 55,
       "format": "manhwa",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_i97mk8huzh8",
@@ -1204,7 +1364,9 @@
       "coverPath": "/covers/cover_1765325888875_4dkjsfk0lb8.jpg",
       "chapters": 1,
       "format": "manhwa",
-      "link": "https://en-thunderscans.com/comics/savior-of-divine-blood-draw-out-0-00000001-to-become-the-strongest/"
+      "link": "https://en-thunderscans.com/comics/savior-of-divine-blood-draw-out-0-00000001-to-become-the-strongest/",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_1chz1jukoa5h",
@@ -1221,7 +1383,9 @@
       "chapters": 1,
       "format": "manhua",
       "link": "https://1stkissmanga.io/manga/divine-perspective/",
-      "updatedAt": "2025-12-12T05:46:50.158Z"
+      "updatedAt": "2025-12-12T05:46:50.158Z",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_i0x0ck1l74d",
@@ -1237,7 +1401,9 @@
       "chapters": 15,
       "format": "manhwa",
       "link": "https://manhwaweb.com/manhwa/puedo-destruir-los--mundos-con-un-cuchillo-carnicero_1750256573107",
-      "updatedAt": "2025-12-26T03:04:09.506Z"
+      "updatedAt": "2025-12-26T03:04:09.506Z",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_p57gd0ghd7",
@@ -1253,7 +1419,9 @@
       "chapters": 1,
       "format": "manhwa",
       "link": "",
-      "updatedAt": "2025-12-26T03:08:20.639Z"
+      "updatedAt": "2025-12-26T03:08:20.639Z",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_gm2ez1fpjl",
@@ -1269,7 +1437,9 @@
       "chapters": 1,
       "format": "manhwa",
       "link": "https://mangabuddy.com/others-level-up-i-cultivate-emerging-only-at-great-ascension",
-      "updatedAt": "2025-12-26T03:15:47.564Z"
+      "updatedAt": "2025-12-26T03:15:47.564Z",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_3g5br45ipjt",
@@ -1284,7 +1454,9 @@
       "coverPath": "/covers/cover_1766719218644_vy11e32n82.jpg",
       "chapters": 112,
       "format": "manga",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_q7hrs14eoma",
@@ -1299,7 +1471,9 @@
       "coverPath": "/covers/cover_1766719611311_xd9snx0p97.jpg",
       "chapters": 100,
       "format": "manga",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_4dw0my9mhor",
@@ -1314,7 +1488,9 @@
       "coverPath": "/covers/cover_1766719795781_2fr8wftd6nh.jpg",
       "chapters": 1,
       "format": "manga",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_e3uvvm8qyvk",
@@ -1329,7 +1505,9 @@
       "coverPath": "/covers/cover_1766720092860_4ys93vq1x93.jpg",
       "chapters": 30,
       "format": "manhwa",
-      "link": "https://www.manhwaweb.com/manhwa/la-aventura-de-un-barbaro-en-un-mundo-de-fantasia_1754253584170"
+      "link": "https://www.manhwaweb.com/manhwa/la-aventura-de-un-barbaro-en-un-mundo-de-fantasia_1754253584170",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_xsg96gyyswi",
@@ -1344,7 +1522,9 @@
       "coverPath": "/covers/cover_1766720234397_nebwimwcnjb.jpg",
       "chapters": 20,
       "format": "manhwa",
-      "link": "https://manhwaweb.com/manhwa/ascension-divina-mi-camino-a-la-cima-de-las-artes-marciales_1756002991638"
+      "link": "https://manhwaweb.com/manhwa/ascension-divina-mi-camino-a-la-cima-de-las-artes-marciales_1756002991638",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_r2imcpedm4k",
@@ -1359,7 +1539,9 @@
       "coverPath": "/covers/cover_1766720296139_1sjsgmp2s7b.jpg",
       "chapters": 130,
       "format": "manhwa",
-      "link": "https://comick.dev/comic/00-reincarnation-of-the-murim-clan-s-former-ranker"
+      "link": "https://comick.dev/comic/00-reincarnation-of-the-murim-clan-s-former-ranker",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_3e5nshl4e9q",
@@ -1374,7 +1556,9 @@
       "coverPath": "/covers/cover_1766720392506_6s6onji30t4.jpg",
       "chapters": 62,
       "format": "manhwa",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
     },
     {
       "id": "lib_d8tloerje0q",
@@ -1389,7 +1573,1601 @@
       "coverPath": "/covers/cover_1766720682100_3072dwen39.jpg",
       "chapters": 9,
       "format": "manhwa",
-      "link": ""
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_f9hlvtid7ro",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2025-12-27T15:56:47.603Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Kiwamete Goumantaru Akuyaku Kizoku no Shogyou",
+      "platform": "",
+      "rating": "C",
+      "coverPath": "/covers/cover_1766850999048_feauyk3q7h.jpg",
+      "chapters": 1,
+      "format": "manga",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_ej6jzjkzdkd",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-03T05:06:57.213Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "El viejo ancestro vuelve al pasado",
+      "platform": "",
+      "rating": "A",
+      "coverPath": "/covers/cover_1767416810123_6xlm78pihvn.jpg",
+      "chapters": 15,
+      "format": "manhwa",
+      "link": "https://lectortaurus.com/manga/el-viejo-ancestro-vuelve-al-pasado/",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_iojuwyocra7",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-03T05:42:50.092Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "The Brilliant Healer's New Life in the Shadows",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1767418968423_a6tyapkfrxw.jpg",
+      "chapters": 1,
+      "format": "manga",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_97nwlvv4kfu",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-10T03:19:43.854Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Sister-in-Law: I’m Really Not a Fool Anymore",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1768015168867_bcjk4td1gs.jpg",
+      "chapters": 27,
+      "format": "manhua",
+      "link": "https://www.leercapitulo.co/manga/hvvl3htf/cunada-ya-no-soy-un-tonto/",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_2mr4buoxxw7",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-10T03:53:59.823Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Acumulador de rasgos",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1768017237646_rgxze2qk3ll.jpg",
+      "chapters": 1,
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_i1qmnn0z45",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-10T03:57:09.975Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Comenzando con la Cuenta del Rey",
+      "platform": "",
+      "rating": "",
+      "coverPath": "/covers/cover_1768017428765_2cq3qx1haiq.jpg",
+      "chapters": 526,
+      "format": "manhua",
+      "link": "https://gremoryhistorias.org/manga/comenzando-con-la-cuenta-del-rey/",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_dkx1eadadc9",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-10T03:58:47.926Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "El Indomable Rey Marcial",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1768017493528_gwr5d89266r.jpg",
+      "chapters": 11,
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_6c4kp3wymse",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-10T04:01:41.038Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "¿En Serio Hay Gente que Piensa que la Cultivación es Difícil?",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1768017685195_hxi563nkqfr.jpg",
+      "chapters": 1,
+      "format": "manhua",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_crpo2nl0iwo",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-10T04:07:41.065Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Demonio De La Lanza Inigualable",
+      "platform": "",
+      "rating": "A",
+      "coverPath": "/covers/cover_1768018044805_h1qljogs0vn.jpg",
+      "chapters": 31,
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_qw4zsjem7f",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-10T04:12:20.046Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "VIVIENDO COMO UN LORD VAMPIRO",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1768018338591_vvekqsj4yw.jpg",
+      "chapters": 24,
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_2dete24atnw",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-01-10T04:13:24.828Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Cuanto más fuerte es mi oponente, más fuerte me vuelvo. Mi nivel de cultivo no tiene límites",
+      "platform": "",
+      "rating": "SS",
+      "coverPath": "/covers/cover_1768018403532_ykexokudmu.jpg",
+      "chapters": 107,
+      "format": "manhua",
+      "link": "",
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "updatedAt": "2026-02-07T12:37:54.346Z",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_ezr0yowq4nk",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-10T04:17:25.095Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "I just cut through the chaotic world / Yo solo corté el mundo caótico",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1768018636701_oma51p6tgqd.jpg",
+      "chapters": 1,
+      "format": "manhua",
+      "link": "https://www.leercapitulo.co/manga/iglb9bb5/yo-solo-corte-el-mundo-caotico/",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_6bmb6p3o3ru",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-10T05:02:11.679Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "I’m Actually a Cultivation Bigshot",
+      "platform": "",
+      "rating": "A",
+      "coverPath": "/covers/cover_1768021320437_78hy2yakg6i.jpg",
+      "chapters": 1,
+      "format": "manhua",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_q3103ws57mi",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-10T16:13:01.683Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Nomin Kanren no Sukiru Bakka Agetetara Nazeka Tsuyoku Natta",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1768061572057_ipnpdu9nv3.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manga",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_4y1ucz0xgbu",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-10T16:36:28.705Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "DARK KNIGHTS OF STEEL",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1768062965145_oleoxwjjgig.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "dc",
+      "link": "https://www.dc.com/comics/dark-knights-of-steel-2021/dark-knights-of-steel-1",
+      "updatedAt": "2026-01-10T18:00:00.428Z",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_3yykc2oyigj",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-10T22:37:57.285Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Login Murim",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1768084665552_mzlpfe2qzo.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "updatedAt": "2026-01-10T22:38:03.907Z",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_nss5ulliyz",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-10T22:39:42.798Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Chronicles of the Demon Faction",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1768084773873_1fx28nyvdws.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_2esu7mriw0s",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-10T22:41:03.596Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Eternal Force",
+      "platform": "",
+      "rating": "D",
+      "coverPath": "/covers/cover_1768084853366_83wf0yt6nu5.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "https://comick.dev/comic/00-the-breaker-eternal-force",
+      "updatedAt": "2026-01-10T22:57:26.025Z",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_5dtaq45gkt5",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-10T23:12:53.283Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "The Stellar Swordmaster",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1768086743343_kblmj8j328p.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": [],
+      "updatedAt": "2026-02-11T03:41:21.278Z"
+    },
+    {
+      "id": "lib_g7kbm4kvoro",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-10T23:13:55.016Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Sword Devouring Swordmaster",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1768086812897_gsrvqf3rao7.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_fhtsav3oyuw",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-10T23:14:52.378Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "The Underworld Transcendent Is Unrivaled at the School!",
+      "platform": "",
+      "rating": "C",
+      "coverPath": "/covers/cover_1768086863295_nqpaekhf3tm.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manga",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_gng0f2d3a7j",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-10T23:19:37.881Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Detrás De La Sonrisa De La Reina Superviviente",
+      "platform": "",
+      "rating": "C",
+      "coverPath": "/covers/cover_1768087171303_nf33rfwl4ne.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_nvnrvh5c5q",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-01-10T23:22:26.381Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "I Raided the Demon God's Treasure Trove",
+      "platform": "",
+      "rating": "A",
+      "coverPath": "/covers/cover_1768087333772_zaq5eojkm1.jpg",
+      "chapters": 50,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_rjmbnnfmfma",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-01-11T04:17:18.079Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Matando a Dioses sin Profesión",
+      "platform": "",
+      "rating": "A",
+      "coverPath": "/covers/cover_1768105011864_62v3ckfi457.jpg",
+      "chapters": 100,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhua",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_i0gcxkgcq1e",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-01-11T04:31:13.541Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "A Boy Raised by the Ultimate Dragon Wants to Be Fostered by Someone Stronger Than His Parent!",
+      "platform": "",
+      "rating": "D",
+      "coverPath": "/covers/cover_1768105781020_u5brqrz5hee.jpg",
+      "chapters": 2,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manga",
+      "link": "https://legionscans.com/wp/manga/un-nino-criado-por-dragones-quiere-ser-adoptado/",
+      "updatedAt": "2026-01-11T05:33:36.061Z",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_s39xvsbzl8j",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-11T04:58:09.719Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Ansatsusha de Aru Ore no Status ga Yuusha yori mo Akiraka ni Tsuyoi no da ga",
+      "platform": "",
+      "rating": "C",
+      "coverPath": "/covers/cover_1768107461749_7d02abmzkuy.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manga",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_9tv0w7ko6ee",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-11T05:49:27.785Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Sichuan’s Supreme King",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1768110552509_6dn747cqzy.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_tbdb6gsgkzp",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-01-11T05:53:18.875Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Monarca malvado de otro mundo / Otherworldly Evil Monarch",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1768110766709_qed7u6ddw3.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhua",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_w3ji10c4kts",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-11T06:29:02.702Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Impure Blood Regression",
+      "platform": "",
+      "rating": "C",
+      "coverPath": "/covers/cover_1768112928912_6iesfa2ky8i.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_bt4rtzat96i",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-01-11T06:38:43.339Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Reincarnator’s Stream / EL STREAM DEL REENCARNADO",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1768113519588_6mks2tufkru.jpg",
+      "chapters": 35,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": [],
+      "updatedAt": "2026-02-04T00:34:30.973Z"
+    },
+    {
+      "id": "lib_gwjqgeknyxc",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-11T06:41:29.319Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "After All Eight Empresses Betrayed Me, I Was Reborn in Regret",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1768113672426_41ye4fl5psb.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "https://en-thunderscans.com/comics/reborn-after-the-eight-empresses-betrayed-me-now-ill-make-them-regret-it/",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_uhnv4cbym0q",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-11T13:42:32.580Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "El Ascenso del Tercer Príncipe del Reino Caído",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1768138877661_53asehfnnlx.jpg",
+      "chapters": 10,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "updatedAt": "2026-01-11T15:03:23.165Z",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_wd6oe9mk4ee",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-01-12T03:46:34.180Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Reencarnación del Rey del Puño ",
+      "platform": "",
+      "rating": "A",
+      "coverPath": "/covers/cover_1768189578030_nco27iy923.jpg",
+      "chapters": 10,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_9t5q2rny6w7",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-01-17T14:55:29.039Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Maestro Dragón: ¡¿ La Profesión más «Inútil»?!",
+      "platform": "",
+      "rating": "SS",
+      "coverPath": "/covers/cover_1768661717096_n5ercge0jvg.jpg",
+      "chapters": 200,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhua",
+      "link": "https://manhwaclan.com/manga/worthless-profession-dragon-tamer/",
+      "actors": [],
+      "comments": [
+        "Sistema super mapa del tesoro",
+        "Profesion: Maestro Dragon"
+      ],
+      "updatedAt": "2026-02-02T04:10:28.246Z"
+    },
+    {
+      "id": "lib_vo3aowa2obn",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-01-17T15:26:46.641Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Mi camino simulado hacia la inmortalidad",
+      "platform": "",
+      "rating": "C",
+      "coverPath": "/covers/cover_1768663540808_b3nx942f4m9.jpg",
+      "chapters": 20,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhua",
+      "link": "",
+      "actors": [],
+      "comments": [
+        "Sistema de CheckPoint"
+      ]
+    },
+    {
+      "id": "lib_qf7w4n9iho7",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-01-18T00:27:57.501Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Tensei Kizoku no Isekai Boukenroku ~Jichou wo Shiranai Kamigami no Shito~",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1768696066263_kubeghi3w68.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_2xj9jc8vybd",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-01-18T00:38:56.404Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Infinite Mage",
+      "platform": "",
+      "rating": "C",
+      "coverPath": "/covers/cover_1768696700035_q3guxaxnj3.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_grddilnyolr",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-18T01:34:15.907Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Boundless Ascension / Nigromante sin limites",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1768700049906_ut1bwacoufg.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_bgsteha7hu4",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-18T02:46:26.520Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "The Hero Returns / Heroe, regresa",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1768704279565_8zfmrmgglrl.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_qhg6visykqc",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-18T16:19:22.189Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Tensei shitara Dragon no Tamago datta / Reincarnated as a Dragon Egg: Thorny Road of a Dragon",
+      "platform": "",
+      "rating": "D",
+      "coverPath": "/covers/cover_1768751885833_9gezkfo6cwd.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manga",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_wc11w9vt1vj",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-22T03:18:19.562Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Crónicas del soberano perezoso",
+      "platform": "",
+      "rating": "C",
+      "coverPath": "/covers/cover_1769051885300_0zmclsnl19us.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_8e3mwhvwjzp",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-22T03:22:24.775Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "La Leyenda De Cultivación De Un Regresor",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1769052060595_m0l8oweerse.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_47l117c64iu",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-01-22T03:25:38.480Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "The Return of The Back Alley Wizard / El regreso del mago ilegítimo",
+      "platform": "",
+      "rating": "C",
+      "coverPath": "/covers/cover_1769052320298_a6mngdyt0c.jpg",
+      "chapters": 10,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_yfh8qhh4za",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-01-25T03:52:36.854Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "El Dios de la Espada de un Mundo Destruido / The Sword God from a Ruined World / The Sword God From the Destroyed World",
+      "platform": "",
+      "rating": "A",
+      "coverPath": "/covers/cover_1769313122773_yiqhrwg10qo.jpg",
+      "chapters": 47,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": [
+        "Recuerdos de su vida anterior"
+      ]
+    },
+    {
+      "id": "lib_vr631tbpt2",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-01-25T04:50:00.248Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Yo Maté Al Jugador De La Academia | I Killed The Player Of The Academy",
+      "platform": "",
+      "rating": "A",
+      "coverPath": "/covers/cover_1769316554594_sstfq4w0p2n.jpg",
+      "chapters": 70,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": [
+        "Runas",
+        "Conocimiento de los eventos"
+      ]
+    },
+    {
+      "id": "lib_k9p1byptjxe",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-25T15:00:35.815Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Super God Gene / Super Genes de Dios",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1769353218525_1nyc5yuqn3p.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhua",
+      "link": "",
+      "actors": [],
+      "comments": [],
+      "updatedAt": "2026-01-25T15:00:41.721Z"
+    },
+    {
+      "id": "lib_9zweelmme6",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-01-25T15:56:30.611Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Apocalypse Heat: I Become a King with My Safehouse / Apocalipsis de Calor Extremo: Me Converti en Dios Gracias a Mi Refugio",
+      "platform": "",
+      "rating": "D",
+      "coverPath": "/covers/cover_1769356425003_huhd03jvm6h.jpg",
+      "chapters": 14,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhua",
+      "link": "",
+      "actors": [],
+      "comments": [
+        "Sistema de negatividad: mientras mas emociones negativas recolecte de otros, mas fuerte ser asi como desbloqueara habilidades",
+        "Poder del espacio: puede guardar objetos en un inventario en donde los objetos ni comidas se vence"
+      ],
+      "updatedAt": "2026-01-25T16:07:19.649Z"
+    },
+    {
+      "id": "lib_8phksapy2up",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-25T16:07:14.844Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "The Genius Girl Hides the Murim Public Enemy / El renacer del Filo y la Flor",
+      "platform": "",
+      "rating": "C",
+      "coverPath": "/covers/cover_1769357223360_5cfgt5t46na.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_xndnpg0f2e9",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-01-25T16:09:23.929Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "City of Sin / Ciudad Del Pecado",
+      "platform": "",
+      "rating": "E",
+      "coverPath": "/covers/cover_1769357329510_ikacxdxx9fb.jpg",
+      "chapters": 7,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhua",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_3c0npjhfmwu",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-25T16:14:20.633Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "La Historia de la Reencarnación del Tigre / Tale of the Floating Sages",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1769357635236_rmemtylif0p.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_u8ofvaw3vq",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-25T16:20:12.131Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Stream del Arquero Genio / Genius Archer’s Livestreaming",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1769357970161_pxv3ndfiow9.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": [],
+      "updatedAt": "2026-01-25T16:30:03.593Z"
+    },
+    {
+      "id": "lib_1k669dzc67qj",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-01-25T16:39:12.432Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Retornador de Vidas Pasadas  (Past Life Returner)",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1769359139337_dk0fgezlrtu.jpg",
+      "chapters": 10,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": [
+        "Habilidad nivel Dios: Ira de Odin"
+      ],
+      "updatedAt": "2026-01-25T16:39:55.519Z"
+    },
+    {
+      "id": "lib_f432widb1jr",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-01-30T03:57:54.245Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Maestro de bestias Legendarias",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1769745447692_mh3grh40n6g.jpg",
+      "chapters": 30,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhua",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_pxea7sykkla",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-30T04:13:45.356Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Almacenes ocultos en el Apocalipsis / Hiding a Warehouse in the Apocalypse",
+      "platform": "",
+      "rating": "C",
+      "coverPath": "/covers/cover_1769746372639_2e6ayyqyetg.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_utf4vzvifj",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-30T04:24:49.309Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "El Joven Maestro del Gran Archivo Celestial / Cheonhwa Archive's Young Master",
+      "platform": "",
+      "rating": "C",
+      "coverPath": "/covers/cover_1769747095494_2uhiq8eg4zl.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": [],
+      "updatedAt": "2026-01-30T04:24:56.709Z"
+    },
+    {
+      "id": "lib_m59gcnzhsu",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-01-30T04:32:36.942Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "La venganza del sabueso de sangre de hierro / Revenge of the Baskerville Bloodhound",
+      "platform": "",
+      "rating": "A",
+      "coverPath": "/covers/cover_1769747501517_nchghkrizpq.jpg",
+      "chapters": 145,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_u0ynkdx2u7s",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-01-30T04:38:10.560Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Se convirtió en el jefe de la Familia Tang de Sichuan",
+      "platform": "",
+      "rating": "C",
+      "coverPath": "/covers/cover_1769747760187_5gmwceya6cu.jpg",
+      "chapters": 20,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_iiuedg1ybuq",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-30T04:39:18.837Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Sichuan’s Supreme King",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1769747950499_pn9p0ezt56.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_w8gdqqq0hip",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-01-30T04:41:19.759Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "El Prodigioso Nieto de la Familia Namgung",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1769748027541_0jd70ur7d7le.jpg",
+      "chapters": 20,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_rs65t4b9y2",
+      "type": "comic",
+      "status": "done",
+      "createdAt": "2026-01-30T04:53:10.190Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "I Became a Renowned Family's Sword Prodigy / Me convertí en el prodigio de la espada de una familia de renombre",
+      "platform": "",
+      "rating": "A",
+      "coverPath": "/covers/cover_1769748624280_tlw2q1t3349.jpg",
+      "chapters": 173,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_h93xw7fl68f",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-31T16:47:09.272Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Me reencarné como un cirujano legendario / I Reincarnated as a Legendary Surgeon",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1769877682789_crllaszj8xc.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhua",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_vp8jirpxzw",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-01-31T16:53:00.573Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Maestro Dragón",
+      "platform": "",
+      "rating": "A",
+      "coverPath": "/covers/cover_1769878220901_01wlvkdvy4ut.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhua",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_e055pgu51jt",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-02-01T04:55:58.827Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Hell Mode: Yarikomi Suki no Gamer wa Hai-settei no Isekai de Musou Suru - Hajimari no Shoukanshi",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1769921741421_18odr3gxgc6.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manga",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_pyqom49nq7",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-02-02T01:00:06.844Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Tu talento ahora es mio! / Your Talent is Mine",
+      "platform": "",
+      "rating": "A",
+      "coverPath": "/covers/cover_1769993919234_qy12n6sate.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhua",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_p1dyp88pnan",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-02-02T01:10:17.289Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Por Accidente quedé Inmortalizado en la Historia",
+      "platform": "",
+      "rating": "C",
+      "coverPath": "/covers/cover_1769994305198_k9vlyp9a0t.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhua",
+      "link": "https://mh.inventariooculto.com/series/por-accidente-quede-inmortalizado-en-la-historia/",
+      "actors": [],
+      "comments": [],
+      "updatedAt": "2026-02-02T01:10:38.875Z"
+    },
+    {
+      "id": "lib_7snonkadb3",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-02-02T05:54:30.447Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "La luz de Arad: Aquel que camina primero",
+      "platform": "",
+      "rating": "D",
+      "coverPath": "/covers/cover_1770011653402_0cfryy761a9.jpg",
+      "chapters": 10,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_rq8g3fdzvx9",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-02-02T05:56:46.924Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "La Regresión del Bastardo Reencarnado del Clan de la Espada / Regressing as the Bastard of the Sword Clan",
+      "platform": "",
+      "rating": "A",
+      "coverPath": "/covers/cover_1770011791926_fy5d03iq3r.jpg",
+      "chapters": 81,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": [],
+      "updatedAt": "2026-02-04T00:07:30.290Z"
+    },
+    {
+      "id": "lib_ie5cl7j321n",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-02-02T05:58:47.225Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Actuando Como El Villano De Ojos De Zorro Perfecto - Playing the Perfect Fox-Eyed Villain",
+      "platform": "",
+      "rating": "E",
+      "coverPath": "/covers/cover_1770011908423_egw47x4lf.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": [],
+      "updatedAt": "2026-02-02T05:58:51.457Z"
+    },
+    {
+      "id": "lib_ukyerehdet",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-02-02T05:59:56.139Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Dios De Los Infectados",
+      "platform": "",
+      "rating": "E",
+      "coverPath": "/covers/cover_1770011983467_ebh1kkoeh2.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_hpbz672xtov",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-02-02T06:00:39.162Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Soy Un Regresor De Nivel Maximo",
+      "platform": "",
+      "rating": "E",
+      "coverPath": "/covers/cover_1770012028975_5z8zgvucvl.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_jel9ox07mcl",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-02-02T06:01:57.452Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "El Mago Genio Que Usa Sus Puños Para Pelear",
+      "platform": "",
+      "rating": "E",
+      "coverPath": "/covers/cover_1770012108420_9s9kbpepjai.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_7l1f8ydclq2",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-02-02T06:03:06.173Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "El herrero genio del juego",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1770012167087_0c1g325617i.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_5tl7iiw03jg",
+      "type": "comic",
+      "status": "done",
+      "createdAt": "2026-02-02T06:14:22.450Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Kaiju No.8",
+      "platform": "",
+      "rating": "S",
+      "coverPath": "/covers/cover_1770012841739_yoy95zmixj.jpg",
+      "chapters": 129,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manga",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_xbfc8rtzg2",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-02-02T06:43:42.051Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Cultivando el dantian supremo / Cultivating the supreme dantian",
+      "platform": "",
+      "rating": "E",
+      "coverPath": "/covers/cover_1770014605409_vt3ouhd7j59.jpg",
+      "chapters": 0,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhua",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_en5sl6v2mli",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-02-11T03:43:56.932Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Maestro de la Espada Devorador de Espadas/ The Sword-Eating Swordmaster",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1770781298669_zipvgvjtcki.jpg",
+      "chapters": 10,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": [
+        "Habilidad: devorar espadas y adquirir sus experiencias",
+        "Su maestro es su antepasado",
+        "Historia: Actualmente esta peleando con un caballero que es un nivel mas poderoso que el y recien desperto su corazon de mana, llamado corazon de acero"
+      ],
+      "updatedAt": "2026-02-12T05:14:17.449Z"
+    },
+    {
+      "id": "lib_186zocl0i7h",
+      "type": "comic",
+      "status": "backlog",
+      "createdAt": "2026-02-11T04:00:37.836Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Al diablo con la ventana de estado / To Hell With the Status Window",
+      "platform": "",
+      "rating": "C",
+      "coverPath": "/covers/cover_1770782402613_839fcfxhfde.jpg",
+      "chapters": 1,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_f3w16ibr46b",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-02-11T06:07:40.125Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Artes Marciales Supremas: ¡Puedo aplastar Dioses con una Sola Mano! / High Martial Arts: Sweeping Through Three Thousand Emperors with One Hand!",
+      "platform": "",
+      "rating": "B",
+      "coverPath": "/covers/cover_1770789905424_ek9s9px7ylf.jpg",
+      "chapters": 11,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhua",
+      "link": "",
+      "actors": [],
+      "comments": [
+        "Tiene un sistema que le permite elevar sus estadisticas de acuerdo a puntos (puntos de artes marciales), estos puntos se obtienen al derrotar a un oponente",
+        "Su sistema le permite incrementar el dominio de una tecnica",
+        "Dato de interes: Qi primordial tiene 7 atributos: ORO,  MADERA, AGUA, VIENTO, TIERRA, FUEGO, RAYO Y VIENTO",
+        "Primera Pregunta: Quien le dio el sistema",
+        "Historia: El prota vencio su pelea soprendiendo a todos y lo llamaron dragon por su talento floreciente"
+      ],
+      "updatedAt": "2026-02-13T02:55:23.232Z"
+    },
+    {
+      "id": "lib_cz5kaqoxwls",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-02-12T05:10:57.113Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "cambio de clase global. Yo invoque a la diosa de la muerte",
+      "platform": "",
+      "rating": "C",
+      "coverPath": "/covers/cover_1770872817705_fbr7u7dgr8a.jpg",
+      "chapters": 4,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhwa",
+      "link": "",
+      "actors": [],
+      "comments": [
+        "Clase Especial Rango SSS Invocador Oscuro",
+        "Invocacion Disponivle Diosa de la muerte(El costo son estadisticas)",
+        "Talento de clase SSS Exencio de sacrificio, reduce el costo de invocar en un 99%"
+      ]
+    },
+    {
+      "id": "lib_pw33cnmc3g",
+      "type": "comic",
+      "status": "in_progress",
+      "createdAt": "2026-02-13T03:39:21.645Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Estuve Atrapado En El Mismo Dia Durante 100,000 Años / Time of Rebirth",
+      "platform": "",
+      "rating": "A",
+      "coverPath": "/covers/cover_1770953917271_ica102ixq18.jpg",
+      "chapters": 200,
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "manhua",
+      "link": "https://manhwaweb.com/manhwa/estuve-atrapado-en-el-mismo-dia-durante--aos_1764686462606",
+      "actors": [],
+      "comments": []
     }
   ]
 }
