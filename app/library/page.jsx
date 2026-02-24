@@ -152,6 +152,9 @@ export default function LibraryPage() {
     <main className="container-app">
       <div className="mb-4 flex items-center justify-between">
         <h1 className="heading-epic select-none">Biblioteca</h1>
+        <div className="flex items-center gap-2">
+          <Button variant="ghost" className="px-3 py-1.5 text-xs" onClick={() => router.push('/comic-rating')}>Calificar comics</Button>
+        </div>
       </div>
 
       {/* Tabs */}

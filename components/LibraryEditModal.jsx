@@ -18,23 +18,11 @@ const STATUSES = [
   { id: 'done', label: 'Completado' },
 ];
 
-// Solo Leveling style ranks
-const RANKS = [
-  { id: 'E', label: 'E', color: 'from-slate-500 to-slate-400' },
-  { id: 'D', label: 'D', color: 'from-green-500 to-emerald-500' },
-  { id: 'C', label: 'C', color: 'from-cyan-500 to-blue-500' },
-  { id: 'B', label: 'B', color: 'from-indigo-600 to-purple-600' },
-  { id: 'A', label: 'A', color: 'from-amber-500 to-orange-600' },
-  { id: 'S', label: 'S', color: 'from-pink-600 to-red-600' },
-  { id: 'SS', label: 'SS', color: 'from-fuchsia-600 to-rose-600' },
-  { id: 'SSS', label: 'SSS', color: 'from-yellow-500 to-amber-600' },
-];
-
 export default function LibraryEditModal({ open, item, onClose }) {
   const { state, updateLibraryItem } = useQuests();
   const router = useRouter();
   const isDominio = state.theme === 'dominio' || state.theme === 'shadow';
-  const [form, setForm] = useState({ title: '', type: 'comic', status: 'backlog', platform: '', rating: '', coverPath: '', chapters: '', seasons: '', year: '', price: '', format: '', link: '', actors: [''], comments: [''] });
+  const [form, setForm] = useState({ title: '', type: 'comic', status: 'backlog', platform: '', coverPath: '', chapters: '', seasons: '', year: '', price: '', format: '', link: '', actors: [''], comments: [''] });
   const [errors, setErrors] = useState({});
   const [coverPreview, setCoverPreview] = useState('');
 
@@ -61,7 +49,6 @@ export default function LibraryEditModal({ open, item, onClose }) {
       type: base.type || 'comic',
       status: base.status || 'backlog',
       platform: base.platform || '',
-      rating: base.rating != null ? String(base.rating) : '',
       coverPath: base.coverPath || '',
       chapters: base.chapters != null ? String(base.chapters) : '',
       seasons: base.seasons != null ? String(base.seasons) : '',
@@ -82,7 +69,6 @@ export default function LibraryEditModal({ open, item, onClose }) {
     const errs = {};
     if (!form.title.trim()) errs.title = 'Título requerido';
     if (form.type === 'game' && !form.platform.trim()) errs.platform = 'Plataforma requerida en juegos';
-    if (form.rating && !RANKS.some(r => r.id === form.rating)) errs.rating = 'Selecciona un rango válido';
     setErrors(errs);
     if (Object.keys(errs).length > 0) return;
 
@@ -134,7 +120,6 @@ export default function LibraryEditModal({ open, item, onClose }) {
       type: normalized.type,
       status: normalized.status,
       platform: normalized.type === 'game' ? normalized.platform.trim() : '',
-      rating: normalized.rating || '',
       coverPath: normalized.coverPath || '',
       chapters: (normalized.type === 'comic' || normalized.type === 'series') ? normalized.chapters : '',
       seasons: normalized.type === 'series' ? normalized.seasons : '',
@@ -336,18 +321,6 @@ export default function LibraryEditModal({ open, item, onClose }) {
                 )}
               </div>
 
-              <div className="rounded-xl border border-slate-700/60 bg-slate-950/30 p-3">
-                <label className="mb-2 block text-[11px] text-slate-400">Rango</label>
-                <div className="flex flex-wrap gap-2">
-                  {RANKS.map(r => {
-                    const active = form.rating === r.id;
-                    return (
-                      <button key={r.id} type="button" onClick={()=> setForm({ ...form, rating: r.id })} className={`rounded-md border px-3 py-1.5 text-xs font-bold bg-gradient-to-r ${active ? `${r.color} text-white` : 'from-slate-800 to-slate-800 text-slate-300 border-slate-700/60'}`}>{r.label}</button>
-                    );
-                  })}
-                  <button type="button" onClick={()=> setForm({ ...form, rating: '' })} className={`rounded-md border px-3 py-1.5 text-xs ${!form.rating ? 'border-slate-500/60 text-slate-300' : 'border-slate-700/60 text-slate-400'}`}>Sin rango</button>
-                </div>
-              </div>
             </div>
           </div>
 
