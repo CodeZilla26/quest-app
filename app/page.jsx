@@ -1,6 +1,1 @@
-"use client";
-import LibraryPage from './library/page';
-
-export default function Page() {
-  return <LibraryPage />;
-}
+export { default } from './library/page';
