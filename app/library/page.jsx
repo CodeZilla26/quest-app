@@ -56,6 +56,7 @@ export default function LibraryPage() {
   const [sortBy, setSortBy] = useState('recent'); // recent | title | rating
   const [editItem, setEditItem] = useState(null);
   const [suppressUrlEditOpen, setSuppressUrlEditOpen] = useState(false);
+  const [secretNav, setSecretNav] = useState(false);
 
   const [addOpen, setAddOpen] = useState(false);
   const [lightboxSrc, setLightboxSrc] = useState('');
@@ -86,6 +87,8 @@ export default function LibraryPage() {
 
   // Push to URL when filters change
   useEffect(() => {
+    if (secretNav) return;
+    if (String(query || '').trim() === '2601') return;
     const sp = new URLSearchParams();
     if (query) sp.set('query', query);
     if (status !== 'all') sp.set('status', status);
@@ -93,6 +96,16 @@ export default function LibraryPage() {
     const qs = sp.toString();
     router.replace(`/library${qs ? `?${qs}` : ''}`);
   }, [query, status, tab]);
+
+  // Hidden PIN trigger for secret library
+  useEffect(() => {
+    if (String(query || '').trim() !== '2601') return;
+    setSecretNav(true);
+    try {
+      sessionStorage.setItem('secretUnlocked', '1');
+    } catch {}
+    router.replace('/secret-library');
+  }, [query]);
 
   const filtered = useMemo(() => {
     const base = (items || [])

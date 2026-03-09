@@ -245,7 +245,7 @@ export default function LibraryAddModal({ open, onClose }) {
                           <option value="manhwa">Manhwa</option>
                           <option value="manhua">Manhua</option>
                           <option value="dc">DC</option>
-                          <option value="marvel">MArvel</option>
+                          <option value="marvel">Marvel</option>
                         </select>
                       </div>
                     )}
