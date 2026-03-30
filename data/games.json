@@ -365,6 +365,44 @@
       "link": "",
       "actors": [],
       "comments": []
+    },
+    {
+      "id": "lib_u24i99bb27",
+      "type": "game",
+      "status": "backlog",
+      "createdAt": "2026-03-23T03:06:34.731Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Pokemon Reborn",
+      "platform": "fan",
+      "coverPath": "",
+      "chapters": "",
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_8vwi41znp",
+      "type": "game",
+      "status": "backlog",
+      "createdAt": "2026-03-28T03:43:56.418Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "RutaCode - Repasa programación",
+      "platform": "App",
+      "coverPath": "",
+      "chapters": "",
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "",
+      "link": "",
+      "actors": [],
+      "comments": []
     }
   ]
 }
