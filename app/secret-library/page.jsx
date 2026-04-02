@@ -187,162 +187,200 @@ export default function SecretLibraryPage() {
       </div>
 
       <div className="mx-auto w-full max-w-6xl px-4 py-4">
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-[360px_1fr]">
-          <div className={`${hasSelection ? 'hidden lg:block' : ''} rounded-2xl border border-red-900/40 bg-black/60 p-3`}
-          >
-            <div className="mb-2 flex items-center justify-between gap-2">
-              <div className="text-xs font-semibold text-red-100">Secretos</div>
-              <Button className="px-2 py-1 text-xs bg-gradient-to-r from-red-700 to-rose-700" onClick={addItem}>+ Nuevo</Button>
-            </div>
+        <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div className="min-w-0">
+            <div className="text-xs font-semibold text-red-100">Secretos</div>
+            <div className="mt-0.5 text-[11px] text-red-200/60">Click en una portada para editar.</div>
+          </div>
+          <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:items-center">
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Buscar por título..."
-              className="mb-3 w-full rounded-lg border border-red-900/60 bg-black/70 px-3 py-2 text-sm text-red-50 placeholder:text-red-200/30 focus:outline-none focus:ring-2 focus:ring-red-500/60"
+              className="w-full rounded-lg border border-red-900/60 bg-black/70 px-3 py-2 text-sm text-red-50 placeholder:text-red-200/30 focus:outline-none focus:ring-2 focus:ring-red-500/60 sm:w-80"
             />
-            <div className="max-h-[calc(100vh-200px)] overflow-y-auto pr-1 space-y-2">
-              {filtered.map((it) => {
-                const active = String(it.id) === String(selectedId);
-                return (
-                  <button
-                    key={it.id}
-                    type="button"
-                    onClick={() => setSelectedId(String(it.id))}
-                    className={`w-full rounded-xl border p-2 text-left transition-colors ${active ? 'border-red-500/60 bg-red-950/40' : 'border-red-900/40 bg-black/40 hover:bg-black/60'}`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="h-14 w-10 overflow-hidden rounded-md bg-black/60 border border-red-900/40 flex items-center justify-center">
-                        {it.coverPath ? (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img src={it.coverPath} alt={it.title || 'cover'} className="h-full w-full object-cover" />
-                        ) : (
-                          <span className="text-[10px] text-red-200/40">Sin</span>
-                        )}
-                      </div>
-                      <div className="min-w-0">
-                        <div className="truncate text-sm font-semibold text-red-50">{it.title || 'Sin título'}</div>
-                        <div className="mt-0.5 text-[11px] text-red-200/50">Comentarios: {(it.comments || []).length}</div>
-                      </div>
-                    </div>
-                  </button>
-                );
-              })}
-              {!filtered.length && (
-                <div className="text-xs text-red-200/60">No hay secretos.</div>
-              )}
-            </div>
-          </div>
-
-          <div className={`${hasSelection ? '' : 'hidden lg:block'} rounded-2xl border border-red-900/40 bg-black/60 p-3`}
-          >
-            {!selected ? (
-              <div className="text-sm text-red-200/70">Selecciona un secreto.</div>
-            ) : (
-              <>
-                <div className="mb-3 flex items-center justify-between gap-2 lg:hidden">
-                  <Button variant="ghost" className="px-3 py-1.5 text-xs" onClick={() => setSelectedId('')}>Volver</Button>
-                  <div className="text-[11px] text-red-200/60">Detalle</div>
-                </div>
-
-                <div className="flex items-start justify-between gap-2">
-                  <div className="min-w-0 flex-1">
-                    <div className="text-xs text-red-200/60">Título</div>
-                    <input
-                      value={selected.title || ''}
-                      onChange={(e) => patchItem(selected.id, { title: e.target.value })}
-                      className="mt-1 w-full rounded-lg border border-red-900/60 bg-black/70 px-3 py-2 text-sm text-red-50"
-                    />
-                  </div>
-                  <Button variant="ghost" className="px-2 py-1 text-xs" onClick={() => removeItem(selected.id)}>Eliminar</Button>
-                </div>
-
-                <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-[200px_1fr]">
-                  <div>
-                    <div className="text-xs text-red-200/60">Imagen</div>
-                    <div className="mt-2 rounded-xl border border-red-900/40 bg-black/50 p-2">
-                      <div className="aspect-[3/4] w-full overflow-hidden rounded-lg bg-black/60 flex items-center justify-center">
-                        {selected.coverPath ? (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img src={selected.coverPath} alt="cover" className="h-full w-full object-cover" />
-                        ) : (
-                          <span className="text-[11px] text-red-200/40">Sin imagen</span>
-                        )}
-                      </div>
-                      <input
-                        type="file"
-                        accept="image/*"
-                        className="mt-2 block w-full text-xs text-red-100 file:mr-3 file:rounded-md file:border file:border-red-900/50 file:bg-black/50 file:px-2 file:py-1 file:text-xs"
-                        onChange={async (e) => {
-                          const f = e.target.files?.[0];
-                          if (!f) return;
-                          try {
-                            const coverPath = await uploadCover(f);
-                            patchItem(selected.id, { coverPath });
-                          } catch (err) {
-                            console.error(err);
-                            alert('Error subiendo imagen');
-                          }
-                        }}
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="text-xs text-red-200/60">Comentarios</div>
-                    <div className="mt-2 space-y-2">
-                      {(Array.isArray(selected.comments) ? selected.comments : []).map((val, idx) => (
-                        <div key={idx} className="flex items-center gap-2">
-                          <input
-                            value={val}
-                            onChange={(e) => {
-                              const next = Array.isArray(selected.comments) ? [...selected.comments] : [];
-                              next[idx] = e.target.value;
-                              patchItem(selected.id, { comments: next });
-                            }}
-                            className="w-full rounded-md border border-red-900/60 bg-black/70 px-3 py-2 text-sm text-red-50"
-                          />
-                          <Button
-                            variant="ghost"
-                            className="px-2 py-1 text-xs"
-                            onClick={() => {
-                              const next = (Array.isArray(selected.comments) ? [...selected.comments] : []).filter((_, i) => i !== idx);
-                              patchItem(selected.id, { comments: next });
-                            }}
-                          >
-                            Eliminar
-                          </Button>
-                        </div>
-                      ))}
-                      <div className="flex flex-wrap gap-2">
-                        <Button
-                          className="px-3 py-1.5 text-xs bg-gradient-to-r from-red-700 to-rose-700"
-                          onClick={() => {
-                            const base = Array.isArray(selected.comments) ? [...selected.comments] : [];
-                            base.push('');
-                            patchItem(selected.id, { comments: base });
-                          }}
-                        >
-                          + Agregar comentario
-                        </Button>
-                        <Button
-                          variant="ghost"
-                          className="px-3 py-1.5 text-xs"
-                          onClick={() => {
-                            const cleaned = normalizeComments(selected.comments);
-                            patchItem(selected.id, { comments: cleaned });
-                          }}
-                        >
-                          Limpiar vacíos
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </>
-            )}
+            <Button className="px-3 py-2 text-xs bg-gradient-to-r from-red-700 to-rose-700" onClick={addItem}>+ Nuevo</Button>
           </div>
         </div>
+
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+          {filtered.map((it) => {
+            const active = String(it.id) === String(selectedId);
+            return (
+              <button
+                key={it.id}
+                type="button"
+                onClick={() => setSelectedId(String(it.id))}
+                className={`group relative overflow-hidden rounded-2xl border bg-black/60 text-left transition-colors ${active ? 'border-red-500/70' : 'border-red-900/40 hover:border-red-700/50'}`}
+              >
+                <div className="aspect-[2/3] w-full bg-black/60">
+                  {it.coverPath ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={it.coverPath} alt={it.title || 'cover'} className="h-full w-full object-cover" />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center">
+                      <span className="text-xs text-red-200/30">Sin imagen</span>
+                    </div>
+                  )}
+                </div>
+
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-3">
+                  <div className="truncate text-sm font-semibold text-red-50">{it.title || 'Sin título'}</div>
+                  <div className="mt-0.5 text-[11px] text-red-200/60">Comentarios: {(it.comments || []).length}</div>
+                </div>
+
+                <div className="absolute right-2 top-2 flex gap-2 opacity-100 transition-opacity sm:opacity-0 sm:group-hover:opacity-100">
+                  <Button
+                    className="px-2 py-1 text-[11px] bg-black/70 border border-red-900/40"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setSelectedId(String(it.id));
+                    }}
+                  >
+                    Editar
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    className="px-2 py-1 text-[11px] bg-black/60"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      removeItem(it.id);
+                    }}
+                  >
+                    Borrar
+                  </Button>
+                </div>
+              </button>
+            );
+          })}
+          {!filtered.length && (
+            <div className="col-span-full rounded-2xl border border-red-900/40 bg-black/60 p-4 text-sm text-red-200/70">
+              No hay secretos.
+            </div>
+          )}
+        </div>
       </div>
+
+      {hasSelection && selected && (
+        <div className="fixed inset-0 z-50">
+          <button
+            type="button"
+            aria-label="Cerrar"
+            className="absolute inset-0 bg-black/80"
+            onClick={() => setSelectedId('')}
+          />
+          <div className="absolute inset-x-0 bottom-0 mx-auto w-full max-w-3xl px-3 pb-3 pt-10 sm:inset-x-auto sm:bottom-auto sm:left-1/2 sm:top-1/2 sm:max-h-[85vh] sm:-translate-x-1/2 sm:-translate-y-1/2">
+            <div className="max-h-[calc(100vh-80px)] overflow-y-auto rounded-2xl border border-red-900/40 bg-black/80 p-3 shadow-2xl backdrop-blur">
+              <div className="mb-3 flex items-center justify-between gap-2">
+                <div className="min-w-0">
+                  <div className="text-xs font-semibold text-red-100">Editar secreto</div>
+                  <div className="mt-0.5 text-[11px] text-red-200/60">ID: {String(selected.id)}</div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Button variant="ghost" className="px-3 py-1.5 text-xs" onClick={() => setSelectedId('')}>Cerrar</Button>
+                  <Button variant="ghost" className="px-3 py-1.5 text-xs" onClick={() => removeItem(selected.id)}>Eliminar</Button>
+                </div>
+              </div>
+
+              <div className="flex items-start justify-between gap-2">
+                <div className="min-w-0 flex-1">
+                  <div className="text-xs text-red-200/60">Título</div>
+                  <input
+                    value={selected.title || ''}
+                    onChange={(e) => patchItem(selected.id, { title: e.target.value })}
+                    className="mt-1 w-full rounded-lg border border-red-900/60 bg-black/70 px-3 py-2 text-sm text-red-50"
+                  />
+                </div>
+              </div>
+
+              <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-[240px_1fr]">
+                <div>
+                  <div className="text-xs text-red-200/60">Imagen</div>
+                  <div className="mt-2 rounded-xl border border-red-900/40 bg-black/50 p-2">
+                    <div className="aspect-[2/3] w-full overflow-hidden rounded-lg bg-black/60 flex items-center justify-center">
+                      {selected.coverPath ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={selected.coverPath} alt="cover" className="h-full w-full object-cover" />
+                      ) : (
+                        <span className="text-[11px] text-red-200/40">Sin imagen</span>
+                      )}
+                    </div>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      className="mt-2 block w-full text-xs text-red-100 file:mr-3 file:rounded-md file:border file:border-red-900/50 file:bg-black/50 file:px-2 file:py-1 file:text-xs"
+                      onChange={async (e) => {
+                        const f = e.target.files?.[0];
+                        if (!f) return;
+                        try {
+                          const coverPath = await uploadCover(f);
+                          patchItem(selected.id, { coverPath });
+                        } catch (err) {
+                          console.error(err);
+                          alert('Error subiendo imagen');
+                        }
+                      }}
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <div className="text-xs text-red-200/60">Comentarios</div>
+                  <div className="mt-2 space-y-2">
+                    {(Array.isArray(selected.comments) ? selected.comments : []).map((val, idx) => (
+                      <div key={idx} className="flex items-center gap-2">
+                        <input
+                          value={val}
+                          onChange={(e) => {
+                            const next = Array.isArray(selected.comments) ? [...selected.comments] : [];
+                            next[idx] = e.target.value;
+                            patchItem(selected.id, { comments: next });
+                          }}
+                          className="w-full rounded-md border border-red-900/60 bg-black/70 px-3 py-2 text-sm text-red-50"
+                        />
+                        <Button
+                          variant="ghost"
+                          className="px-2 py-1 text-xs"
+                          onClick={() => {
+                            const next = (Array.isArray(selected.comments) ? [...selected.comments] : []).filter((_, i) => i !== idx);
+                            patchItem(selected.id, { comments: next });
+                          }}
+                        >
+                          Eliminar
+                        </Button>
+                      </div>
+                    ))}
+                    <div className="flex flex-wrap gap-2">
+                      <Button
+                        className="px-3 py-1.5 text-xs bg-gradient-to-r from-red-700 to-rose-700"
+                        onClick={() => {
+                          const base = Array.isArray(selected.comments) ? [...selected.comments] : [];
+                          base.push('');
+                          patchItem(selected.id, { comments: base });
+                        }}
+                      >
+                        + Agregar comentario
+                      </Button>
+                      <Button
+                        variant="ghost"
+                        className="px-3 py-1.5 text-xs"
+                        onClick={() => {
+                          const cleaned = normalizeComments(selected.comments);
+                          patchItem(selected.id, { comments: cleaned });
+                        }}
+                      >
+                        Limpiar vacíos
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
