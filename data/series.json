@@ -689,6 +689,90 @@
       "link": "",
       "actors": [],
       "comments": []
+    },
+    {
+      "id": "lib_lh1osrcsexl",
+      "type": "series",
+      "status": "backlog",
+      "createdAt": "2026-04-03T22:42:04.296Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "diarios de vampiros",
+      "platform": "",
+      "coverPath": "",
+      "chapters": "",
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "",
+      "link": "",
+      "actors": [],
+      "comments": []
+    },
+    {
+      "id": "lib_lsi4fz1fcr",
+      "type": "series",
+      "status": "backlog",
+      "createdAt": "2026-04-11T13:13:00.809Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "The Bikeriders",
+      "platform": "",
+      "coverPath": "/covers/cover_1775913164395_ndinydenm2q.jpg",
+      "chapters": "",
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "",
+      "link": "",
+      "actors": [
+        "Tom Hardy"
+      ],
+      "comments": []
+    },
+    {
+      "id": "lib_rhfltc2cqxl",
+      "type": "series",
+      "status": "in_progress",
+      "createdAt": "2026-04-11T13:32:14.584Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "The Day of the Jackal / Chacal",
+      "platform": "",
+      "coverPath": "/covers/cover_1775914359809_wu7cisbqlac.jpg",
+      "chapters": 10,
+      "seasons": 1,
+      "year": "",
+      "price": "",
+      "format": "",
+      "link": "",
+      "actors": [
+        "Eddie Redmayne",
+        "Úrsula Corberó"
+      ],
+      "comments": [],
+      "updatedAt": "2026-04-11T20:54:45.844Z"
+    },
+    {
+      "id": "lib_sz21vkyk2lj",
+      "type": "series",
+      "status": "backlog",
+      "createdAt": "2026-04-11T13:44:05.064Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Chicago Fire",
+      "platform": "",
+      "coverPath": "/covers/cover_1775915039560_70gq1lrihag.jpg",
+      "chapters": 1,
+      "seasons": 1,
+      "year": "",
+      "price": "",
+      "format": "",
+      "link": "",
+      "actors": [
+        "Jesse Spencer"
+      ],
+      "comments": []
     }
   ]
 }

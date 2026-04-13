@@ -2188,6 +2188,25 @@
       "link": "",
       "actors": [],
       "comments": []
+    },
+    {
+      "id": "lib_tu6kywuazm",
+      "type": "movie",
+      "status": "backlog",
+      "createdAt": "2026-04-11T14:01:05.555Z",
+      "tags": [],
+      "coverBase64": "",
+      "title": "Sucker Punch",
+      "platform": "",
+      "coverPath": "/covers/cover_1775915675529_1js9phmm7s3.jpg",
+      "chapters": "",
+      "seasons": "",
+      "year": "",
+      "price": "",
+      "format": "",
+      "link": "",
+      "actors": [],
+      "comments": []
     }
   ]
 }
